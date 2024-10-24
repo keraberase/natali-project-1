@@ -117,11 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Модальное окно для сертификатов
 const modal = document.createElement('div');
 modal.classList.add('modal');
+document.body.appendChild(modal);
 
 // Создаем изображение для модального окна
 const modalImg = document.createElement('img');
 modal.appendChild(modalImg);
-document.body.appendChild(modal);
 
 // Закрытие модального окна при клике вне изображения
 modal.addEventListener('click', (event) => {
@@ -133,7 +133,8 @@ modal.addEventListener('click', (event) => {
 // Обработчик кликов на сертификатах
 document.querySelectorAll('.certificate-image').forEach((image) => {
     image.addEventListener('click', () => {
-        modalImg.src = image.src; // Устанавливаем источник изображения в модальном окне
+        const highResSrc = image.getAttribute('data-full'); // Получаем 2x версию изображения
+        modalImg.src = highResSrc; // Устанавливаем источник изображения в модальном окне
         modal.style.display = 'flex'; // Показываем модальное окно
     });
 });
