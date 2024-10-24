@@ -240,14 +240,13 @@ flex-shrink: 0;
    }
 
 .Certificate {
-    background-color: rgba(255, 216, 195, 0.8); /* Полупрозрачный фон */
     padding: 40px 16px; /* Отступы секции */
     text-align: center; /* Центрирование текста */
     backdrop-filter: blur(10px); /* Эффект размытия фона */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
     overflow: hidden; /* Скрываем переполнение */
     flex-shrink: 0;
-    width: 365px; /* Ширина каждого сертификата */
+    min-width: 365px; /* Ширина каждого сертификата */
     height: 547px; /* Высота сертификата */
     margin-right: 10px;
     object-fit: cover;
@@ -266,11 +265,11 @@ flex-shrink: 0;
 }
 
 .certificates-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Центрирование по вертикали */
-    position: relative;
-    width: 100%;
+    display: flex; /* Установка флекс-контейнера */
+    overflow-x: auto; /* Позволяет прокручивать в горизонтальном направлении */
+    width: 100%; /* Занимает всю ширину экрана */
+    position: relative; /* Относительное позиционирование */
+    padding: 20px 0; /* Добавьте отступы, если это необходимо */
 }
 
 .certificates-wrapper .Certificate {
@@ -283,8 +282,9 @@ flex-shrink: 0;
 }
 
 .certificate-image {
-    width: 100%; /* Полная ширина изображения */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+    flex: 0 0 auto; /* Установка фиксированной ширины */
+    width: 365px; /* Установите ширину сертификата */
+    margin: 0 5px; /* Отступы между сертификатами */
 }
 
 .swiper-container {
@@ -304,22 +304,23 @@ flex-shrink: 0;
     opacity: 1; /* Полная видимость активного сертификата */
 }
   
-  .modal {
-    display: none; /* Скрыто по умолчанию */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Поместить выше остальных элементов */
+.modal {
+    display: none; /* Изначально скрыто */
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0; /* К верхнему краю окна */
+    left: 0; /* К левому краю окна */
+    width: 100vw; /* Полная ширина окна */
+    height: 100vh; /* Полная высота окна */
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    z-index: 1000; /* Установите высокий z-index, чтобы перекрыть другие элементы */
 }
 
 .modal img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 90%; /* Максимальная ширина изображения 90% */
+    max-height: 90%; /* Максимальная высота изображения 90% */
+    object-fit: contain; /* Сохранение соотношения сторон */
 }
 
 .modal-button {
@@ -350,6 +351,11 @@ flex-shrink: 0;
 @media (max-width: 768px) {
     .header-navigation {
         display: none; 
+    }
+
+    .certificate-image {
+        width: 80%; /* Ширина на маленьких экранах */
+        max-width: 300px; /* Максимальная ширина на маленьких экранах */
     }
 
     .menu-open-button {

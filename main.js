@@ -82,6 +82,9 @@ document.body.appendChild(modal);
 const modalImg = document.createElement('img');
 modal.appendChild(modalImg);
 
+// Переменная для текущего индекса изображения
+let currentImageIndex = 0;
+
 // Обработчик закрытия модального окна при клике вне изображения
 modal.addEventListener('click', (event) => {
     if (event.target !== modalImg) {
@@ -93,9 +96,13 @@ modal.addEventListener('click', (event) => {
 document.querySelectorAll('.certificate-image').forEach((image, index) => {
     image.addEventListener('click', () => {
         const highResSrc = image.getAttribute('data-full');
-        modalImg.src = highResSrc;
-        modal.style.display = 'flex';
-        currentImageIndex = index; // Установка текущего индекса
+        if (highResSrc) { // Проверка на наличие изображения
+            modalImg.src = highResSrc;
+            modal.style.display = 'flex';
+            currentImageIndex = index; // Установка текущего индекса
+        } else {
+            console.error('Изображение не найдено по пути:', highResSrc);
+        }
     });
 });
 
