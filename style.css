@@ -44,7 +44,7 @@ img {
     width: 100%; /* Занимает всю ширину */
     min-width: 365px; /* Минимальная ширина */
     min-height: 648px;
-    background-image: url(./images/Photo-Natali.jpg);
+    background-image: url(../images/Photo-Natali.jpg);
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -66,6 +66,7 @@ img {
     z-index: 20; /* Высокий z-index для того, чтобы кнопка была над контентом */
 }
 
+
 .menu-open-button:active {
     background: rgba(255, 216, 195, 0.30);
 }
@@ -80,7 +81,7 @@ img {
     max-width: 100%;
     padding: 0 0 37px 0; /* Убраны боковые отступы */
     color: #fff;
-    margin: 0;
+margin: 0;
 }
 
 /* Заголовок */
@@ -144,7 +145,9 @@ img {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
     border-radius: 0px 20px; /* Закругленные углы */
     z-index: 10; /* Устанавливаем высокий z-index, чтобы меню всегда было сверху */
+   
 }
+
 
 .mob-menu-item {
     margin-bottom: 41px;
@@ -156,7 +159,8 @@ img {
     color: #333; 
 }
 
-.basis {
+
+.basis{
     display: flex;
     width: 100%; /* Занимает всю ширину */
     min-width: 365px; /* Минимальная ширина */
@@ -170,18 +174,17 @@ img {
     position: relative;
     overflow: hidden; 
 }
-
-.start-your-way-text {
+.start-your-way-text{
     align-self: stretch;
-    color: #FFFAF5;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    font-variant: small-caps;
-}
+color: #FFFAF5;
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+font-variant: small-caps;
 
+}
 .image-container {
     position: relative;
     height: 350px; /* Убедитесь, что эта высота соответствует видимой половине изображения */
@@ -189,7 +192,7 @@ img {
 }
 
 .basis-head {
-    position: absolute; 
+ position: absolute; 
     top: -10%; /* Центрируем по вертикали */
     left: 50%; /* Центрируем по горизонтали */
     transform: translate(-50%, -100%) rotate(0deg); /* Убедитесь, что верхняя часть видна */
@@ -198,11 +201,11 @@ img {
     height: 699px;
 }
 
-body.scroll .basis-head {
+  body.scroll .basis-head {
     transform: translateX(-50%) rotate(10deg); /* Поворот на 10 градусов */
-}
+  }
 
-.Help-you {
+  .Help-you {
     padding: 0 16px; /* Убедитесь, что добавили паддинги для контейнера */
 }
 
@@ -213,26 +216,42 @@ body.scroll .basis-head {
     width: 100%; /* Ширина полосы на всю ширину контейнера */
 }
 
-.Help-you-text {
-    flex-shrink: 0;
-    color: #4C4645;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    font-variant: small-caps;
+.Help-you-text{
+flex-shrink: 0;
+ color: #4C4645;
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+font-variant: small-caps;
+flex-shrink: 0;
 }
 
-.Help-you-history-text {
+.Help-you-history-text{
     flex-shrink: 0;
     color: #4C4645;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    font-variant: small-caps;
+   font-family: Montserrat;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+   font-variant: small-caps;
+   }
+   .Certificate {
+    background-color: rgba(255, 216, 195, 0.8); /* Полупрозрачный фон */
+    padding: 40px 16px; /* Отступы секции */
+    text-align: center; /* Центрирование текста */
+    backdrop-filter: blur(10px); /* Эффект размытия фона */
+    border-radius: 20px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+    overflow: hidden; /* Скрываем переполнение */
+}
+
+.black-line {
+    height: 2px; /* Высота линии */
+    background-color: black; /* Цвет линии */
+    margin: 20px 0; /* Отступы сверху и снизу */
 }
 
 .Certificate {
@@ -260,15 +279,101 @@ body.scroll .basis-head {
 
 .certificates-slider {
     position: relative;
-    overflow: hidden; /* Скрываем прокрутку */
+    overflow: hidden; /* Скрываем переполнение */
 }
 
 .certificates-wrapper {
-    display: flex; /* Горизонтальное выравнивание */
-    transition: transform 0.3s ease; /* Плавный переход */
+    overflow: hidden; /* Скрываем слайды за пределами видимой области */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%; /* Ширина контейнера */
 }
 
 .certificate {
-    flex: 0 0 auto; /* Избегаем растяжения */
-    margin-right: 10px; /* Отступ между сертификатами */
+    flex-shrink: 0;
+    width: 365px; /* Ширина каждого сертификата */
+    height: 547px; /* Высота сертификата */
+    margin-right: 10px;
+    object-fit: cover;
+}
+.certificate-image {
+    width: 100%; /* Полная ширина изображения */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.swiper-container {
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6; /* Прозрачность для боковых карточек */
+    transition: opacity 0.3s ease;
+  }
+  
+  .swiper-slide-active {
+    opacity: 1; /* Полная видимость для активного слайда */
+  }
+  
+  .certificate-image {
+    width: 80%; /* Уменьшение размера изображения */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+  }
+  .modal {
+    display: none; /* Скрываем модальное окно по умолчанию */
+    position: fixed; /* Фиксируем его на экране */
+    top: 0; /* Привязываем к верхней части */
+    left: 0; /* Привязываем к левому краю */
+    width: 100vw; /* Ширина на всю ширину экрана */
+    height: 100vh; /* Высота на всю высоту экрана */
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    z-index: 100; /* Высокий z-index для отображения поверх всего */
+}
+
+.modal img {
+    max-width: 90%; /* Ограничиваем максимальную ширину изображения */
+    max-height: 90%; /* Ограничиваем максимальную высоту изображения */
+    border-radius: 10px; /* Закругленные углы для изображения */
+}
+
+/* Анимация прокрутки */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Прокручиваем на 100% */
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .header-navigation {
+        display: none; 
+    }
+
+    .menu-open-button {
+        display: none; 
+    }
+
+    .mob-menu-list {
+        display: none; 
+    }
+}
+@media (min-width: 768px) {
+.header {
+    background-image: url(../images/Photo-Natali2x.jpg);
+}
+}
+@media (min-width: 1024px) {
+    .menu-open-button {
+        display: none; 
+    }
+
+    .mob-menu-list {
+        display: none; 
+    }
 }
