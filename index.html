@@ -1,13 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body> 
+
+   <header class="header">
+      <div class="container header-container">
+          <nav class="header-navigation">
+              <ul class="header-menu-list">
+                  <li class="header-menu-item">
+                    <a class="header-menu-link" href="">Основні принципи</a>
+                  </li>
+                  <li class="header-menu-item">
+                    <a class="header-menu-link" href="">Сеттинг</a>
+                  </li>
+                  <li class="header-menu-item">
+                    <a class="header-menu-link" href="">Конфіденційність</a>
+                  </li>
+                  <li class="header-menu-item">
+                    <a class="header-menu-link" href="">Соціальні мережі</a>
+                  </li>
+                  <li class="header-menu-item">
+                    <a class="header-menu-link" href="">Консультація</a>
+                  </li>
+              </ul>
+          </nav>
+          <ul class="mob-menu-list">
+            <button type="button" class="menu-open-button">
+                <svg class="menu-button-icon" height="62" width="62">
+                    <use href="./images/symbol-defs.svg#icon-Group"></use>
+                </svg>
+            </button>
+            <li class="mob-menu-item">
+                <a class="mob-menu-link" href="">Основні принципи</a>
+            </li>
+            <li class="mob-menu-item">
+                <a class="mob-menu-link" href="">Сеттинг</a>
+            </li>
+            <li class="mob-menu-item">
+                <a class="mob-menu-link" href="">Конфіденційність</a>
+            </li>
+            <li class="mob-menu-item">
+                <a class="mob-menu-link" href="">Соціальні мережі</a>
+            </li>
+            <li class="mob-menu-item">
+                <a class="mob-menu-link" href="">Консультація</a>
+            </li>
+        </ul>
+      <div class="content">
+          <h1 class="header-title">Наталія Ботяновська</h1>
+          <p class="header-text">Психолог в психоаналітичному підході</p>
+      </div>
+   </header>
+
+   <main>
+
+    <section class="basis">
+      <div class="container">
+        <p class="start-your-way-text">
+          Коли б ти не почав(ла) – це буде найвлучніший момент для початку.
+          Твій початковий пункт відрізняється від початкових пунктів у інших.
+          Твій шлях не буде схожий на інші.
+          Бо ти є унікальним(ою)
+        </p>
+          <div class="image-container">
+          <img class="basis-head" src="./images/Head.png" alt="Head">
+        </div>
+      </div>
+    </section>
+
+    <section class="Help-you">
+      <div class="container">
+        <p class="Help-you-text">
+          Я допоможу тобі віднайти та усвідомити несвідомі процеси, установки, сценарії, які могли зародитися ще в глибокому дитинстві. Допоможу тобі зрозуміти себе, свої емоції та почуття, усвідомити свої бажання, дослідити причини тривог та страхів та усунути їх, вирішити внутрішні конфлікти.
+        </p>
+
+          <div class="black-line"></div>
+
+        <p class="Help-you-history-text">
+          В психологію я прийшла усвідомлюючи свій власний травматичний досвід, з бажанням пропрацювати та зцілити. Доторкнувшись до розуміння механізмів роботи психіки, захотілося поринути ще глибше в ці процеси, щоб стати фахівцем в цій спеціальності та ділитися своїми знаннями і вміннями. Психологія - це моя друга освіта, в яку я прийшла з великою любов’ю та безмежною цікавістю.
+        </p>
+        </div>
+    </section>
+
+    <section class="Certificate">
+      <div class="container">
+          <div class="certificates-slider">
+              <div class="certificates-wrapper">
+                  <div class="certificate">
+                      <img src="./images/Certificate.png" alt="certificate image 1" class="certificate-image">
+                  </div>
+                  <div class="certificate">
+                      <img src="./images/Certificate.png" alt="certificate image 2" class="certificate-image">
+                  </div>
+                  <div class="certificate">
+                      <img src="./images/Certificate.png" alt="certificate image 3" class="certificate-image">
+                  </div>
+              </div>
+          </div>
+          
+          <div class="black-line"></div>
+  
+          <p class="Certificate-text">
+              Теоретичні знання та практичні навички глибинного психоаналітичного підходу здобула в EPS (European Psychology School)
+          </p>
+      </div>
+  </section>
+  
+   </main>
+
+   <script src="./main.js" type="module"></script> <!-- Здесь ваш основной JavaScript файл -->
+
+</body>
 </html>

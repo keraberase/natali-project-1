@@ -1,96 +1,274 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+body {
+    background-color: #FFD8C3;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+    text-decoration: none;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+ul,
+li {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    cursor: pointer;
+    border: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+img {
+    display: block;
+}
+
+.container {
+    max-width: none; /* Убираем максимальную ширину */
+    width: 100%; /* Устанавливаем ширину 100% */
+    padding-left: 16px; /* Убедитесь, что вы оставили паддинг */
+    padding-right: 16px; /* Убедитесь, что вы оставили паддинг */
+    margin: 0; /* Убираем отступы */
+}
+
+/* Задайте отступы для всей шапки */
+.header {
+    position: relative;
+    width: 100%; /* Занимает всю ширину */
+    min-width: 365px; /* Минимальная ширина */
+    min-height: 648px;
+    background-image: url(../images/Photo-Natali.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start; /* Выравнивание по левому краю */
+    transition: all 0.3s ease;
+}
+
+.menu-open-button {
+    position: absolute; /* Абсолютное позиционирование внутри модалки */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    background: rgba(255, 216, 195, 0.70); /* Фон кнопки */
+    fill: #534139; /* Цвет иконки */
+    border-radius: 50%; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background 0.3s ease; /* Плавный переход для фона */
+    padding: 10px; /* Padding для кнопки */
+    z-index: 20; /* Высокий z-index для того, чтобы кнопка была над контентом */
+}
+
+.menu-open-button:active {
+    background: rgba(255, 216, 195, 0.30);
+}
+
+.menu-open-button:focus {
+    outline: none;
+    background: rgba(255, 216, 195, 0.30);
+}
+
+/* Контент */
+.content {
+    max-width: 100%;
+    padding: 0 0 37px 0; /* Убраны боковые отступы */
+    color: #fff;
+    margin: 0;
+}
+
+/* Заголовок */
+.header-title {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+/* Текст */
+.header-text {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-variant: small-caps;
+}
+
+/* Навигация */
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 16px; /* Отступы по 16px с каждой стороны */
+}
+
+.header-menu-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+}
+
+.header-menu-item {
+    font-size: 16px;
+}
+
+.header-menu-link {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Мобильные стили */
+.mob-menu-list {
+    display: none; /* Скрываем мобильное меню по умолчанию */
+    flex-direction: column; /* Вертикальное направление */
+    width: 100vw; /* Ширина меню на всю ширину экрана */
+    height: 100vh; /* Высота меню на всю высоту экрана */
+    background: rgba(255, 216, 195, 0.70); /* Фон для мобильного меню */
+    position: fixed; /* Фиксируем модальное окно относительно экрана */
+    top: 0; /* Расположим меню сверху */
+    left: 0; /* Привязываем меню к левому краю */
+    padding: 105px 16px 20px 16px; /* Отступы внутри меню */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+    border-radius: 0px 20px; /* Закругленные углы */
+    z-index: 10; /* Устанавливаем высокий z-index, чтобы меню всегда было сверху */
+}
+
+.mob-menu-item {
+    margin-bottom: 41px;
+    padding: 0 16px; 
+}
+
+.mob-menu-link {
+    text-decoration: none; 
+    color: #333; 
+}
+
+.basis {
+    display: flex;
+    width: 100%; /* Занимает всю ширину */
+    min-width: 365px; /* Минимальная ширина */
+    padding: 44px 0; /* Убедитесь, что только сверху и снизу */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Выравнивание по левому краю */
+    gap: 10px;
+    background: #4C4645;
+    backdrop-filter: blur(25px);
+    position: relative;
+    overflow: hidden; 
+}
+
+.start-your-way-text {
+    align-self: stretch;
+    color: #FFFAF5;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-variant: small-caps;
+}
+
+.image-container {
+    position: relative;
+    height: 350px; /* Убедитесь, что эта высота соответствует видимой половине изображения */
+    overflow: hidden; /* Скрывает содержимое, выходящее за пределы контейнера */
+}
+
+.basis-head {
+    position: absolute; 
+    top: -10%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -100%) rotate(0deg); /* Убедитесь, что верхняя часть видна */
+    transition: transform 0.2s; 
+    width: 699px;
+    height: 699px;
+}
+
+body.scroll .basis-head {
+    transform: translateX(-50%) rotate(10deg); /* Поворот на 10 градусов */
+}
+
+.Help-you {
+    padding: 0 16px; /* Убедитесь, что добавили паддинги для контейнера */
+}
+
+.black-line {
+    height: 2px; /* Высота полосы */
+    background-color: black; /* Цвет полосы */
+    margin: 54px 0; /* Отступ сверху и снизу от полосы */
+    width: 100%; /* Ширина полосы на всю ширину контейнера */
+}
+
+.Help-you-text {
+    flex-shrink: 0;
+    color: #4C4645;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-variant: small-caps;
+}
+
+.Help-you-history-text {
+    flex-shrink: 0;
+    color: #4C4645;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-variant: small-caps;
+}
+
+.Certificate {
+    background-color: rgba(255, 216, 195, 0.8); /* Полупрозрачный фон */
+    padding: 40px 16px; /* Отступы секции */
+    text-align: center; /* Центрирование текста */
+    backdrop-filter: blur(10px); /* Эффект размытия фона */
+    border-radius: 20px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
+    overflow: hidden; /* Скрываем переполнение */
+}
+
+.black-line {
+    height: 2px; /* Высота линии */
+    background-color: black; /* Цвет линии */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.Certificate-text {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.certificates-slider {
+    position: relative;
+    overflow: hidden; /* Скрываем прокрутку */
+}
+
+.certificates-wrapper {
+    display: flex; /* Горизонтальное выравнивание */
+    transition: transform 0.3s ease; /* Плавный переход */
+}
+
+.certificate {
+    flex: 0 0 auto; /* Избегаем растяжения */
+    margin-right: 10px; /* Отступ между сертификатами */
 }
