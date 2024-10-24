@@ -1,5 +1,5 @@
 body {
-    background-color: #FFD8C3;
+    background-color: #FFEDE3;
 }
 
 h1,
@@ -238,21 +238,6 @@ flex-shrink: 0;
    line-height: normal;
    font-variant: small-caps;
    }
-   .Certificate {
-    background-color: rgba(255, 216, 195, 0.8); /* Полупрозрачный фон */
-    padding: 40px 16px; /* Отступы секции */
-    text-align: center; /* Центрирование текста */
-    backdrop-filter: blur(10px); /* Эффект размытия фона */
-    border-radius: 20px; /* Закругленные углы */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
-    overflow: hidden; /* Скрываем переполнение */
-}
-
-.black-line {
-    height: 2px; /* Высота линии */
-    background-color: black; /* Цвет линии */
-    margin: 20px 0; /* Отступы сверху и снизу */
-}
 
 .Certificate {
     background-color: rgba(255, 216, 195, 0.8); /* Полупрозрачный фон */
@@ -261,12 +246,11 @@ flex-shrink: 0;
     backdrop-filter: blur(10px); /* Эффект размытия фона */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
     overflow: hidden; /* Скрываем переполнение */
-}
-
-.black-line {
-    height: 2px; /* Высота линии */
-    background-color: black; /* Цвет линии */
-    margin: 20px 0; /* Отступы сверху и снизу */
+    flex-shrink: 0;
+    width: 365px; /* Ширина каждого сертификата */
+    height: 547px; /* Высота сертификата */
+    margin-right: 10px;
+    object-fit: cover;
 }
 
 .Certificate-text {
@@ -282,20 +266,22 @@ flex-shrink: 0;
 }
 
 .certificates-wrapper {
-    overflow: hidden; /* Скрываем слайды за пределами видимой области */
     display: flex;
     justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
     position: relative;
-    width: 100%; /* Ширина контейнера */
+    width: 100%;
 }
 
-.certificate {
-    flex-shrink: 0;
-    width: 365px; /* Ширина каждого сертификата */
-    height: 547px; /* Высота сертификата */
-    margin-right: 10px;
-    object-fit: cover;
+.certificates-wrapper .Certificate {
+    transition: transform 0.3s ease; /* Плавный переход при наведении */
 }
+
+.certificates-wrapper .Certificate.active {
+    transform: scale(1.1); /* Увеличение сертификата при выделении */
+    z-index: 1; /* Подъем над другими сертификатами */
+}
+
 .certificate-image {
     width: 100%; /* Полная ширина изображения */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
@@ -312,16 +298,12 @@ flex-shrink: 0;
     align-items: center;
     opacity: 0.6; /* Прозрачность для боковых карточек */
     transition: opacity 0.3s ease;
-  }
+}
+
+.swiper-slide-active {
+    opacity: 1; /* Полная видимость активного сертификата */
+}
   
-  .swiper-slide-active {
-    opacity: 1; /* Полная видимость для активного слайда */
-  }
-  
-  .certificate-image {
-    width: 80%; /* Уменьшение размера изображения */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
-  }
   .modal {
     display: none; /* Скрыто по умолчанию */
     position: fixed;
@@ -329,16 +311,33 @@ flex-shrink: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Слой поверх остальных элементов */
+    z-index: 1000; /* Поместить выше остальных элементов */
 }
 
 .modal img {
-    max-width: 90%; /* Максимальная ширина изображения 90% */
-    max-height: 90%; /* Максимальная высота изображения 90% */
-    object-fit: contain; /* Сохранение пропорций изображения */
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
 
 /* Анимация прокрутки */
