@@ -94,7 +94,7 @@ body {
 }
 @media (min-width: 768px) {
 .header {
-    background-image: url(./images/Photo-Natali2x.jpg);
+    background-image: url(../images/Photo-Natali2x.jpg);
 }
 }
 @media (min-width: 1024px) {
