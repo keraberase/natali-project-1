@@ -100,5 +100,4 @@ font-weight: 600;
     display: flex; /* Используем Flexbox */
     justify-content: center; /* Центрируем по горизонтали */
     align-items: center; /* Центрируем по вертикали */
-    padding: 24px 60px; /* Устанавливаем внутренние отступы */
 }
