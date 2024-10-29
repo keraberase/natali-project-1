@@ -1,0 +1,65 @@
+.work-with{
+    display: flex;
+    background: var(--brown);
+    padding-top: 44px;
+    padding-bottom: 44px;
+}
+
+.work-with-head{
+    color: var(--white);
+font-family: "Cormorant Infant";
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+text-transform: capitalize;
+line-height: 1.1;
+letter-spacing: -0.04em;
+}
+
+    .work-with-list{ 
+        display: flex;
+flex-direction: column;
+gap: 48px;
+align-self: stretch;
+    }
+
+
+    .work-with-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 39px;
+        padding: 48px 29px;
+border-radius: 0px 20px;
+background: var(--white);
+backdrop-filter: blur(25px);
+    }
+    .work-with-content h3{
+
+font-family: Montserrat;
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-variant: small-caps;
+line-height: 1.1;
+letter-spacing: -0.04em;
+    }
+    .work-with-list-content{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-self: stretch;
+        align-self: stretch;
+    }
+
+    .work-with-list-content li{
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        line-height: normal;
+        font-variant: small-caps;
+        list-style-type: disc;
+        
+    }
+   
