@@ -95,3 +95,10 @@ font-weight: 600;
     background-color: var(--orange);
     color: var(--white);
 }
+
+.button-container {
+    display: flex; /* Используем Flexbox */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    padding: 24px 60px; /* Устанавливаем внутренние отступы */
+}
