@@ -3,6 +3,7 @@
     background: var(--brown);
     padding-top: 44px;
     padding-bottom: 44px;
+    margin-bottom: 24px;
 }
 
 .work-with-head{
@@ -35,7 +36,7 @@ background: var(--white);
 backdrop-filter: blur(25px);
     }
     .work-with-content h3{
-
+color: var(--brown);
 font-family: Montserrat;
 font-size: 28px;
 font-style: normal;
@@ -54,12 +55,13 @@ letter-spacing: -0.04em;
     }
 
     .work-with-list-content li{
+        color: var(--brown);
         font-family: Montserrat;
         font-size: 20px;
         font-style: normal;
         line-height: normal;
         font-variant: small-caps;
         list-style-type: disc;
-        
+
     }
    
