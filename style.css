@@ -161,6 +161,7 @@ margin: 0;
 
 
 .basis{
+    margin-bottom: 7px;
     display: flex;
     width: 100%; /* Занимает всю ширину */
     min-width: 365px; /* Минимальная ширина */
@@ -239,20 +240,21 @@ flex-shrink: 0;
    font-variant: small-caps;
    }
 
-.Certificate {
-    padding: 40px 16px; /* Отступы секции */
+.certificate {
+    
+    padding: 40px; /* Отступы секции */
     text-align: center; /* Центрирование текста */
     backdrop-filter: blur(10px); /* Эффект размытия фона */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Тень */
     overflow: hidden; /* Скрываем переполнение */
     flex-shrink: 0;
     min-width: 365px; /* Ширина каждого сертификата */
-    height: 547px; /* Высота сертификата */
     margin-right: 10px;
+    margin-bottom: 24px;
     object-fit: cover;
 }
 
-.Certificate-text {
+.certificate-text {
+    text-align: left;
     font-family: Montserrat;
     font-size: 20px;
     font-weight: 400;
@@ -341,6 +343,57 @@ flex-shrink: 0;
     right: 10px;
 }
 
+/* Анимация прокрутки */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Прокручиваем на 100% */
+}
+
+.information{
+min-width: 365px;
+display: flex;
+padding: 44px 0px 44px 0px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border: 2px solid #4C4645;
+background: #4C4645;
+margin-bottom: 24px;
+}
+.information-text{
+
+min-width: 333px;
+    color: #FFF;
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+font-variant: small-caps;
+}
+
+.about-me{
+    min-width: 365px;
+display: flex;
+padding: 44px 0px 44px 0px;
+justify-content: center;
+align-items: center;
+margin-bottom: 24px;
+}
+.about-me-titel {
+    font-size: 18px;
+    color: #4C4645;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-me-content{color: #1F1F1F;
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-variant: small-caps;}
 /* Анимация прокрутки */
 @keyframes scroll {
     0% { transform: translateX(0); }
