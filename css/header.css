@@ -1,0 +1,71 @@
+/* Задайте отступы для всей шапки */
+.header {
+    position: relative;
+    width: 100%; /* Занимает всю ширину */
+    min-width: 365px; /* Минимальная ширина */
+    min-height: 648px;
+    background-image: url(../images/Photo-Natali.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start; /* Выравнивание по левому краю */
+    transition: all 0.3s ease;
+}
+/* Заголовок */
+.header-title {
+   font-family: Montserrat;
+    color: var(--white);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+/* Текст */
+.header-text {
+    color: var(--white);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-variant: small-caps;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+/* Навигация */
+.header-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 0 16px; /* Отступы по 16px с каждой стороны */
+}
+
+.header-menu-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+}
+
+.header-menu-item {
+    font-size: 16px;
+}
+
+.header-menu-link {
+    text-decoration: none;
+    color: var(--medium-brown);
+}
+/* Контент */
+.content {
+    max-width: 100%;
+    padding: 0 0 37px 0; /* Убраны боковые отступы */
+    color: var(--white);
+margin: 0;
+}

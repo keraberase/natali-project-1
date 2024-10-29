@@ -1,0 +1,80 @@
+
+.basis{
+    margin-bottom: 7px;
+    display: flex;
+    width: 100%; /* Занимает всю ширину */
+    min-width: 365px; /* Минимальная ширина */
+    padding: 44px 0; /* Убедитесь, что только сверху и снизу */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Выравнивание по левому краю */
+    gap: 10px;
+    background: var(--brown);
+    backdrop-filter: blur(25px);
+    position: relative;
+    overflow: hidden; 
+}
+.start-your-way-text{
+    align-self: stretch;
+color: var(--white);
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+line-height: normal;
+font-variant: small-caps;
+line-height: 1.1;
+letter-spacing: -0.04em;
+
+}
+.image-container {
+    position: relative;
+    height: 350px; /* Убедитесь, что эта высота соответствует видимой половине изображения */
+    overflow: hidden; /* Скрывает содержимое, выходящее за пределы контейнера */
+}
+
+.basis-head {
+ position: absolute; 
+    top: -10%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translate(-50%, -100%) rotate(0deg); /* Убедитесь, что верхняя часть видна */
+    transition: transform 0.2s; 
+    width: 699px;
+    height: 699px;
+}
+
+  body.scroll .basis-head {
+    transform: translateX(-50%) rotate(10deg); /* Поворот на 10 градусов */
+  }
+
+  .Help-you {
+    padding: 0 16px; /* Убедитесь, что добавили паддинги для контейнера */
+}
+
+.black-line {
+    height: 2px; /* Высота полосы */
+    background-color: black; /* Цвет полосы */
+    margin: 54px 0; /* Отступ сверху и снизу от полосы */
+    width: 100%; /* Ширина полосы на всю ширину контейнера */
+}
+
+.Help-you-text{
+flex-shrink: 0;
+ color: var(--brown);
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+line-height: normal;
+font-variant: small-caps;
+flex-shrink: 0;
+}
+
+.Help-you-history-text{
+    flex-shrink: 0;
+    color: var(--brown);
+   font-family: Montserrat;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+   font-variant: small-caps;
+   }

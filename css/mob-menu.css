@@ -1,0 +1,50 @@
+/* Мобильные стили */
+.mob-menu-list {
+    display: none; /* Скрываем мобильное меню по умолчанию */
+    flex-direction: column; /* Вертикальное направление */
+    width: 100vw; /* Ширина меню на всю ширину экрана */
+    height: 100vh; /* Высота меню на всю высоту экрана */
+    background: rgba(255, 216, 195, 0.70); /* Фон для мобильного меню */
+    position: fixed; /* Фиксируем модальное окно относительно экрана */
+    top: 0; /* Расположим меню сверху */
+    left: 0; /* Привязываем меню к левому краю */
+    padding: 105px 16px 20px 16px; /* Отступы внутри меню */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+    border-radius: 0px 20px; /* Закругленные углы */
+    z-index: 10; /* Устанавливаем высокий z-index, чтобы меню всегда было сверху */
+   
+}
+
+
+.mob-menu-item {
+    margin-bottom: 41px;
+    padding: 0 16px; 
+}
+
+.mob-menu-link {
+    text-decoration: none; 
+    color: var(--medium-brown); 
+}
+
+.menu-open-button {
+    position: absolute; /* Абсолютное позиционирование внутри модалки */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    background: rgba(255, 216, 195, 0.70); /* Фон кнопки */
+    fill: var(--medium-brown); /* Цвет иконки */
+    border-radius: 50%; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background 0.3s ease; /* Плавный переход для фона */
+    padding: 10px; /* Padding для кнопки */
+    z-index: 20; /* Высокий z-index для того, чтобы кнопка была над контентом */
+}
+
+
+.menu-open-button:active {
+    background: rgba(255, 216, 195, 0.30);
+}
+
+.menu-open-button:focus {
+    outline: none;
+    background: rgba(255, 216, 195, 0.30);
+}
