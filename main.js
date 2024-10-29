@@ -133,3 +133,4 @@ document.addEventListener('keydown', (event) => {
 document.getElementById('telegramButton').addEventListener('click', function() {
     window.location.href = 'https://t.me/natalyabotyanovskaya';
 });
+

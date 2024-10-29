@@ -1,0 +1,97 @@
+.consultation {
+    display: flex;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    margin-bottom: 24px;
+}
+
+.consultation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+    padding-bottom: 44px;
+}
+
+.consultation-seting-head,
+.consultation-title {
+    color: var(--brown);
+    font-family: Cormorant Infant;
+    font-size: 40px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+}
+
+.consultation-seting-meeting {
+    color: var(--brown);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-variant: small-caps;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.consultation-seting-meeting-text,
+.consultation-list-content {
+    color: var(--brown);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: small-caps;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.consultation-list {
+    list-style: none; /* Убираем стандартные маркеры */
+    padding: 0; /* Убираем отступы */
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 24px;
+align-self: stretch;
+
+}
+
+.consultation-list-content {
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание */
+}
+
+.consultation-icon {
+    flex-shrink: 0; /* Не позволяем иконкам сжиматься */
+    margin-right: 17px; /* Промежуток между иконкой и текстом */
+}
+
+.consultation-span{
+font-weight: 600;
+}
+.telegram-btn{
+    display: flex;
+    padding: 24px 60px 23px 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 10px;
+    background-color: var(--brown);
+    color: #FFD8C3;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+.telegram-btn:hover,
+.telegram-btn:active {
+    background-color: var(--orange);
+    color: var(--white);
+}

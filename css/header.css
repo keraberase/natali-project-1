@@ -15,11 +15,10 @@
 /* Заголовок */
 .header-title {
    font-family: Montserrat;
+   font-style: normal;
     color: var(--white);
     font-size: 36px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
     text-transform: uppercase;
     line-height: 1.1;
     letter-spacing: -0.04em;
@@ -29,10 +28,9 @@
 .header-text {
     color: var(--white);
     font-family: Montserrat;
-    font-size: 16px;
     font-style: normal;
+    font-size: 16px;
     font-weight: 400;
-    line-height: normal;
     font-variant: small-caps;
     line-height: 1.1;
     letter-spacing: -0.04em;

@@ -18,9 +18,8 @@
     align-self: stretch;
 color: var(--white);
 font-family: Montserrat;
-font-size: 20px;
 font-style: normal;
-line-height: normal;
+font-size: 20px;
 font-variant: small-caps;
 line-height: 1.1;
 letter-spacing: -0.04em;
@@ -63,7 +62,8 @@ flex-shrink: 0;
 font-family: Montserrat;
 font-size: 20px;
 font-style: normal;
-line-height: normal;
+line-height: 1.1;
+letter-spacing: -0.04em;
 font-variant: small-caps;
 flex-shrink: 0;
 }
@@ -72,9 +72,10 @@ flex-shrink: 0;
     flex-shrink: 0;
     color: var(--brown);
    font-family: Montserrat;
-   font-size: 20px;
    font-style: normal;
+   font-size: 20px;
    font-weight: 400;
-   line-height: normal;
    font-variant: small-caps;
+   line-height: 1.1;
+   letter-spacing: -0.04em;
    }

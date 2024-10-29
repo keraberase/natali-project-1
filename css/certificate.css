@@ -16,6 +16,7 @@
     text-align: left;
     font-family: Montserrat;
     font-size: 20px;
+    font-style: normal;
     font-weight: 400;
     margin-top: 20px; /* Отступ сверху */
     line-height: 1.1;
@@ -122,9 +123,8 @@ min-width: 333px;
 font-family: Montserrat;
     color: var(--white);
 font-size: 20px;
-font-style: normal;
-line-height: normal;
 font-variant: small-caps;
+font-style: normal;
 line-height: 1.1;
 letter-spacing: -0.04em;
 }
