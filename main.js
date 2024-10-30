@@ -1,4 +1,4 @@
-import jQuery from 'jquery';
+import $ from 'jquery';
 
 // Обработчик вращения изображений при прокрутке
 document.addEventListener('DOMContentLoaded', () => {
@@ -148,9 +148,11 @@ $(document).ready(function() {
             window.location.href = appLink; // Пытаемся открыть приложение Instagram
 
             // Обработчик события для проверки открытия приложения
-            $(window).on("pagehide", function() {
-                // Если приложение не открылось, перенаправляем на веб-версию
-                window.location.replace(webLink); 
+            $(window).on("visibilitychange", function() {
+                if (document.visibilityState === "visible") {
+                    // Если страница снова стала видимой, это означает, что приложение не открылось
+                    window.location.href = webLink; // Перенаправляем на веб-версию
+                }
             });
         } else {
             window.open(webLink, "_blank"); // Открываем веб-версию для десктопа
