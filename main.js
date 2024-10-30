@@ -1,3 +1,5 @@
+import jQuery from 'jquery';
+
 // Обработчик вращения изображений при прокрутке
 document.addEventListener('DOMContentLoaded', () => {
     const basisHead = document.querySelector('.basis-head');
@@ -134,24 +136,24 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
     });
 });
 
-document.getElementById("instagramLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Предотвращаем переход по умолчанию
+$(document).ready(function() {
+    $("#instagramLink").on("click", function(event) {
+        event.preventDefault(); // Предотвращаем переход по умолчанию
 
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Проверяем, мобильное ли устройство
-    const appLink = "instagram://user?username=natalya_botyanovska_psy"; // Ссылка на приложение
-    const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw=="; // Ссылка на веб-версию
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        const appLink = "instagram://user?username=natalya_botyanovska_psy";
+        const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
-    if (isMobile) {
-        // Пробуем открыть приложение Instagram
-        window.location.href = appLink; // Пытаемся открыть приложение Instagram
+        if (isMobile) {
+            window.location.href = appLink; // Пытаемся открыть приложение Instagram
 
-        // Устанавливаем обработчик на событие `pagehide`, чтобы проверить, открылось ли приложение
-        window.addEventListener("pagehide", function() {
-            // Если приложение не открылось, перенаправляем на веб-версию
-            window.location.replace(webLink); // Открываем веб-версию
-        });
-    } else {
-        // Если устройство не мобильное, открываем веб-версию в новой вкладке
-        window.open(webLink, "_blank");
-    }
+            // Обработчик события для проверки открытия приложения
+            $(window).on("pagehide", function() {
+                // Если приложение не открылось, перенаправляем на веб-версию
+                window.location.replace(webLink); 
+            });
+        } else {
+            window.open(webLink, "_blank"); // Открываем веб-версию для десктопа
+        }
+    });
 });
