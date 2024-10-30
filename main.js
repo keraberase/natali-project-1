@@ -137,19 +137,15 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
 document.getElementById("instagramLink").addEventListener("click", function(event) {
     event.preventDefault(); // Предотвращаем переход по умолчанию
 
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const appLink = "instagram://user?username=natalya_botyanovska_psy";
-    const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Проверяем, мобильное ли устройство
+    const appLink = "instagram://user?username=natalya_botyanovska_psy"; // Ссылка на приложение
+    const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw=="; // Ссылка на веб-версию
 
     if (isMobile) {
         // Пробуем открыть приложение Instagram
-        const appOpened = window.open(appLink);
-
-        // Если приложение не открылось (проверка на мобильных устройствах)
-        if (!appOpened) {
-            // Открываем веб-версию
-            window.location.href = webLink; // Перенаправляем на веб-версию
-        }
+        window.location.href = appLink; // Пытаемся открыть приложение Instagram
+        // После этого, если приложение не откроется, мы не делаем ничего.
+        // Это предполагает, что браузер не будет открывать ссылку в новой вкладке.
     } else {
         // Если устройство не мобильное, открываем веб-версию в новой вкладке
         window.open(webLink, "_blank");
