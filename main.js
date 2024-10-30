@@ -133,3 +133,10 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
         window.open('https://t.me/natalyabotyanovskaya', '_blank');
     });
 });
+
+
+    // Определение устройства для мобильной версии
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // Если мобильное устройство, меняем ссылку на схему для Instagram
+        document.getElementById("instagramLink").href = "instagram://user?username=natalya_botyanovska_psy";
+    }
