@@ -1,0 +1,66 @@
+/* Основные стили секции */
+.confidentiality{
+    display: flex;
+    justify-content: center;
+    padding: 44px 0;
+    margin-bottom: 24px;
+}
+
+/* Заголовок */
+.confidentiality-title {
+    color: var(--brown);
+    font-family: Cormorant Infant;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
+}
+
+/* Контейнер для карточек */
+.confidentiality-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+/* Стили для карточек */
+.confidentiality-card {
+    min-width: 333px;
+    min-height: 383px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 62px 31px 0 32px;
+    border-radius: 20px;
+    border: 2px solid #4C4645;
+    background: #FFFAF5;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 106px;
+}
+
+/* Контейнер для иконки, чтобы расположить её сверху */
+.icon-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-35%, -70%);
+}
+
+
+/* Текст внутри карточек */
+.confidentiality-card p {
+    display: flex;
+    flex-direction: column;
+align-items: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    margin: 0;
+    font-variant: small-caps;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}

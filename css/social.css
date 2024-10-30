@@ -1,0 +1,46 @@
+.social{
+    display: flex;
+    justify-content: center;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    background-color: var(--brown);
+    margin-bottom: 24px;
+}
+.social-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 44px;
+}
+
+.social-text{
+    color: var(--white);
+text-align: center;
+font-family: Cormorant Infant;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: 1.5;
+letter-spacing: 0.01em;
+text-transform: capitalize;
+}
+
+.social-button .social-icon {
+    transition: fill 0.5s ease; /* плавный переход цвета */
+}
+
+.social-button:hover .social-icon {
+    fill: #FFD8C3; /* цвет при наведении */
+}
+
+.social-button:active .social-icon {
+    fill: #FFD8C3; /* цвет при нажатии */
+}
+
+.last-button-container {
+    display: flex; /* Используем Flexbox */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+    margin-bottom: 136px;
+}
