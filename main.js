@@ -145,10 +145,14 @@ document.getElementById("instagramLink").addEventListener("click", function(even
         // Попытка открыть приложение Instagram
         window.location.href = appLink;
 
-        // Открываем веб-версию в случае, если приложение не установлено
-        window.setTimeout(function() {
-            window.location.href = webLink;
-        }, 1000); // Ожидаем 1 секунду перед открытием веб-версии
+        // Открываем веб-версию только если приложение не установлено
+        // Убираем таймеры и открываем веб-версию, если пользователь остается на странице
+        setTimeout(function() {
+            // Если страница все еще активна, откроем веб-версию
+            if (document.visibilityState === 'visible') {
+                window.location.href = webLink;
+            }
+        }, 500); // Установите минимальную задержку для проверки
     } else {
         // Если устройство не мобильное, открываем веб-версию в новой вкладке
         window.open(webLink, "_blank");
