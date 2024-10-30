@@ -148,7 +148,7 @@ document.getElementById("instagramLink").addEventListener("click", function(even
         // Устанавливаем обработчик на событие `pagehide`, чтобы проверить, открылось ли приложение
         window.addEventListener("pagehide", function() {
             // Если приложение не открылось, перенаправляем на веб-версию
-            window.location.href = webLink; // Открываем веб-версию
+            window.location.replace(webLink); // Открываем веб-версию
         });
     } else {
         // Если устройство не мобильное, открываем веб-версию в новой вкладке
