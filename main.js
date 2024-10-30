@@ -143,15 +143,16 @@ document.getElementById("instagramLink").addEventListener("click", function(even
 
     if (isMobile) {
         // Открываем приложение Instagram
-        const appOpened = window.open(appLink, "_blank");
+        const appOpened = window.open(appLink);
 
-        // Проверяем, открыто ли приложение
+        // Открываем веб-версию только если приложение не открылось
         setTimeout(function() {
-            // Если вкладка все еще видима, значит приложение не открылось
+            // Проверяем, была ли вкладка активна
             if (document.visibilityState === 'visible') {
+                // Если вкладка активна, значит приложение не открылось
                 window.location.href = webLink; // Перенаправляем на веб-версию
             }
-        }, 100); // Проверяем через короткую задержку
+        }, 50); // Уменьшаем задержку до 50 мс
     } else {
         // Если устройство не мобильное, открываем веб-версию в новой вкладке
         window.open(webLink, "_blank");
