@@ -142,17 +142,14 @@ document.getElementById("instagramLink").addEventListener("click", function(even
     const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
     if (isMobile) {
-        // Открываем приложение Instagram
+        // Пробуем открыть приложение Instagram
         const appOpened = window.open(appLink);
 
-        // Открываем веб-версию только если приложение не открылось
-        setTimeout(function() {
-            // Проверяем, была ли вкладка активна
-            if (document.visibilityState === 'visible') {
-                // Если вкладка активна, значит приложение не открылось
-                window.location.href = webLink; // Перенаправляем на веб-версию
-            }
-        }, 50); // Уменьшаем задержку до 50 мс
+        // Если приложение не открылось (проверка на мобильных устройствах)
+        if (!appOpened) {
+            // Открываем веб-версию
+            window.location.href = webLink; // Перенаправляем на веб-версию
+        }
     } else {
         // Если устройство не мобильное, открываем веб-версию в новой вкладке
         window.open(webLink, "_blank");
