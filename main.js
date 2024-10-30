@@ -135,43 +135,23 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
 });
 
 document.getElementById("instagramLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Отменяем переход по умолчанию
+    event.preventDefault(); // Предотвращаем переход по умолчанию
 
-    // Проверяем, является ли устройство мобильным
+    // Проверка на мобильное устройство
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     const appLink = "instagram://user?username=natalya_botyanovska_psy";
     const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
-    // Валидация URL
-    function isValidInstagramUrl(url) {
-        const regex = /^https:\/\/www\.instagram\.com\/[a-zA-Z0-9._]+/;
-        return regex.test(url);
-    }
-
     if (isMobile) {
-        // Открываем приложение
+        // Пробуем открыть приложение Instagram
         window.location.href = appLink;
 
-        // Проверяем, открылось ли приложение
-        let appOpened = false;
-
-        // Устанавливаем обработчик события на потерю фокуса
-        window.addEventListener('blur', function() {
-            if (!appOpened) {
-                window.location.href = webLink; // Открываем веб-версию, если приложение не открылось
-            }
-        });
-
-        // Устанавливаем обработчик события на фокус
-        window.addEventListener('focus', function() {
-            appOpened = true; // Если фокус вернулся, значит приложение открылось
-        });
+        // Если приложение не открылось, через 500 мс откроется веб-версия в новой вкладке
+        setTimeout(function() {
+            window.open(webLink, "_blank"); // Открываем веб-версию в новой вкладке
+        }, 500);
     } else {
-        // Проверяем на валидность и открываем веб-версию
-        if (isValidInstagramUrl(webLink)) {
-            window.location.href = webLink;
-        } else {
-            console.error("Invalid Instagram URL");
-        }
+        // Если устройство не мобильное, открываем веб-версию в новой вкладке
+        window.open(webLink, "_blank");
     }
 });
