@@ -144,8 +144,12 @@ document.getElementById("instagramLink").addEventListener("click", function(even
     if (isMobile) {
         // Пробуем открыть приложение Instagram
         window.location.href = appLink; // Пытаемся открыть приложение Instagram
-        // После этого, если приложение не откроется, мы не делаем ничего.
-        // Это предполагает, что браузер не будет открывать ссылку в новой вкладке.
+
+        // Устанавливаем обработчик на событие `pagehide`, чтобы проверить, открылось ли приложение
+        window.addEventListener("pagehide", function() {
+            // Если приложение не открылось, перенаправляем на веб-версию
+            window.location.href = webLink; // Открываем веб-версию
+        });
     } else {
         // Если устройство не мобильное, открываем веб-версию в новой вкладке
         window.open(webLink, "_blank");
