@@ -142,19 +142,36 @@ document.getElementById("instagramLink").addEventListener("click", function(even
     const appLink = "instagram://user?username=natalya_botyanovska_psy";
     const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
+    // Валидация URL
+    function isValidInstagramUrl(url) {
+        const regex = /^https:\/\/www\.instagram\.com\/[a-zA-Z0-9._]+/;
+        return regex.test(url);
+    }
+
     if (isMobile) {
-        // Попробуем открыть приложение
-        const start = Date.now();
+        // Открываем приложение
         window.location.href = appLink;
 
-        // Таймер для проверки, открылось ли приложение
-        setTimeout(function() {
-            if (Date.now() - start < 800) {
-                window.location.href = webLink; // Если приложение не открылось, открываем веб-версию
+        // Проверяем, открылось ли приложение
+        let appOpened = false;
+
+        // Устанавливаем обработчик события на потерю фокуса
+        window.addEventListener('blur', function() {
+            if (!appOpened) {
+                window.location.href = webLink; // Открываем веб-версию, если приложение не открылось
             }
-        }, 800);
+        });
+
+        // Устанавливаем обработчик события на фокус
+        window.addEventListener('focus', function() {
+            appOpened = true; // Если фокус вернулся, значит приложение открылось
+        });
     } else {
-        // Если это ПК, просто открываем веб-версию
-        window.location.href = webLink;
+        // Проверяем на валидность и открываем веб-версию
+        if (isValidInstagramUrl(webLink)) {
+            window.location.href = webLink;
+        } else {
+            console.error("Invalid Instagram URL");
+        }
     }
 });
