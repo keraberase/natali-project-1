@@ -142,30 +142,19 @@ document.getElementById("instagramLink").addEventListener("click", function(even
 
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     const appLink = "instagram://user?username=natalya_botyanovska_psy";
-    const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
+    const webLink = "https://www.instagram.com/natalya_botyanovska_psy";
 
     if (isMobile) {
         // Пробуем открыть приложение Instagram
-        const startTime = Date.now();
         window.location.href = appLink;
 
-        // Создаем iframe для проверки, если приложение не открылось
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
-        iframe.src = webLink;
-
-        // Проверяем, открылось ли приложение
-        setTimeout(() => {
-            const elapsed = Date.now() - startTime;
-            if (elapsed < 1500) {
-                // Если приложение не открылось, переходим на веб-версию
-                window.location.href = webLink;
-            }
-            document.body.removeChild(iframe); // Удаляем iframe
-        }, 1000); // Ждем 1 секунду для проверки
+        // Обработчик события для проверки открытия приложения
+        window.setTimeout(function() {
+            // Если приложение не открылось, перенаправляем на веб-версию
+            window.location.href = webLink; 
+        }, 500); // Задержка на 500 мс, чтобы дать время приложению открыться
     } else {
         // Открываем веб-версию для десктопа
-        window.open(webLink, "_blank");
+        window.open(webLink, "_blank"); 
     }
 });
