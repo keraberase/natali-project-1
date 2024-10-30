@@ -137,30 +137,27 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
 });
 
 
-$(document).ready(function() {
-    $("#instagramLink").on("click", function(event) {
-        event.preventDefault(); // Предотвращаем переход по умолчанию
+document.getElementById("instagramLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Предотвращаем переход по умолчанию
 
-        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-        const appLink = "instagram://user?username=natalya_botyanovska_psy";
-        const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const appLink = "instagram://user?username=natalya_botyanovska_psy";
+    const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
-        if (isMobile) {
-            // Создаем iframe для проверки, открылось ли приложение
-            const iframe = $('<iframe>', {
-                src: appLink,
-                style: 'display: none;'
-            }).appendTo('body');
+    if (isMobile) {
+        // Пытаемся открыть приложение Instagram
+        const startTime = Date.now();
+        window.location.href = appLink;
 
-            // Ставим таймер для проверки открытия приложения
-            setTimeout(function() {
-                iframe.remove(); // Удаляем iframe
-                // Если приложение не открылось, открываем веб-версию
-                window.location.href = webLink; 
-            }, 2000); // Увеличьте время ожидания, если необходимо
-        } else {
-            // Открываем веб-версию для десктопа
-            window.open(webLink, "_blank"); 
-        }
-    });
+        // Ожидаем 2000 мс, чтобы проверить, открылось ли приложение
+        setTimeout(function() {
+            // Если прошло менее 2000 мс и пользователь остается на странице
+            if (Date.now() - startTime < 2000 && document.visibilityState === 'visible') {
+                window.open(webLink, "_blank"); // Открываем веб-версию
+            }
+        }, 2000);
+    } else {
+        // Если устройство не мобильное, просто открываем веб-версию
+        window.open(webLink, "_blank");
+    }
 });
