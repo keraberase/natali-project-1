@@ -137,21 +137,29 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
 document.getElementById("instagramLink").addEventListener("click", function(event) {
     event.preventDefault(); // Предотвращаем переход по умолчанию
 
-    // Проверка на мобильное устройство
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     const appLink = "instagram://user?username=natalya_botyanovska_psy";
     const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
     if (isMobile) {
         // Пробуем открыть приложение Instagram
+        let appOpened = false;
+        const timer = setTimeout(function() {
+            if (!appOpened) {
+                window.open(webLink, "_blank"); // Открываем веб-версию в новой вкладке
+            }
+        }, 500);
+
+        // Попытка открыть Instagram через URL-схему
         window.location.href = appLink;
 
-        // Если приложение не открылось, через 500 мс откроется веб-версия в новой вкладке
-        setTimeout(function() {
-            window.open(webLink, "_blank"); // Открываем веб-версию в новой вкладке
-        }, 500);
+        // Устанавливаем обработчик для определения открытия приложения
+        window.addEventListener("pagehide", function() {
+            clearTimeout(timer);
+            appOpened = true;
+        });
     } else {
-        // Если устройство не мобильное, открываем веб-версию в новой вкладке
+        // Если устройство не мобильное, просто открываем веб-версию в новой вкладке
         window.open(webLink, "_blank");
     }
 });
