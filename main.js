@@ -135,8 +135,20 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
 });
 
 
-    // Определение устройства для мобильной версии
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        // Если мобильное устройство, меняем ссылку на схему для Instagram
-        document.getElementById("instagramLink").href = "instagram://user?username=natalya_botyanovska_psy";
-    }
+document.getElementById("instagramLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Предотвращаем переход по умолчанию
+    const appLink = "instagram://user?username=natalya_botyanovska_psy";
+    const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
+
+    // Попробуем открыть приложение
+    const start = Date.now();
+    window.location.href = appLink;
+
+    // Если через 800 мс ничего не произошло, откроем браузерную версию
+    setTimeout(function() {
+        // Проверка: если прошло менее 800 мс, значит, приложение не открылось
+        if (Date.now() - start < 800) {
+            window.location.href = webLink;
+        }
+    }, 800);
+});
