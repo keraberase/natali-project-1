@@ -134,21 +134,27 @@ document.querySelectorAll('.telegram-btn').forEach(button => {
     });
 });
 
-
 document.getElementById("instagramLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Предотвращаем переход по умолчанию
+    event.preventDefault(); // Отменяем переход по умолчанию
+
+    // Проверяем, является ли устройство мобильным
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     const appLink = "instagram://user?username=natalya_botyanovska_psy";
     const webLink = "https://www.instagram.com/natalya_botyanovska_psy?igsh=MWk5bDQ5NnJrZ28xZw==";
 
-    // Попробуем открыть приложение
-    const start = Date.now();
-    window.location.href = appLink;
+    if (isMobile) {
+        // Попробуем открыть приложение
+        const start = Date.now();
+        window.location.href = appLink;
 
-    // Если через 800 мс ничего не произошло, откроем браузерную версию
-    setTimeout(function() {
-        // Проверка: если прошло менее 800 мс, значит, приложение не открылось
-        if (Date.now() - start < 800) {
-            window.location.href = webLink;
-        }
-    }, 800);
+        // Таймер для проверки, открылось ли приложение
+        setTimeout(function() {
+            if (Date.now() - start < 800) {
+                window.location.href = webLink; // Если приложение не открылось, открываем веб-версию
+            }
+        }, 800);
+    } else {
+        // Если это ПК, просто открываем веб-версию
+        window.location.href = webLink;
+    }
 });
