@@ -1,0 +1,78 @@
+.client {
+    display: flex;
+    justify-content: center;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    background-color: var(--brown);
+}
+
+.client-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.client-head {
+    color: var(--white);
+    font-family: 'Cormorant Infant', serif;
+    font-size: 32px; /* Уменьшите шрифт заголовка */
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: capitalize;
+    margin-bottom: 20px; /* Отступ снизу для заголовка */
+}
+
+.client-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Уменьшите расстояние между элементами списка */
+}
+
+.client-list-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px; /* Отступ между иконкой и текстом */
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.client-icon {
+    flex-shrink: 0;
+    margin-right: 12px; /* Расстояние между иконкой и текстом */
+}
+.telegram-btn {
+    display: flex;
+    padding: 24px 60px 23px 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 10px;
+    background-color: var(--brown);
+    color: #FFD8C3;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+
+.telegram-btn:hover,
+.telegram-btn:active {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.client-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+}

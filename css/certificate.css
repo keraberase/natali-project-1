@@ -1,6 +1,6 @@
 .certificate {
     
-    padding: 40px; /* Отступы секции */
+    padding: 74px 0 44px 0; /* Отступы секции */
     text-align: center; /* Центрирование текста */
     backdrop-filter: blur(10px); /* Эффект размытия фона */
     overflow: hidden; /* Скрываем переполнение */

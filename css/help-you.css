@@ -1,0 +1,34 @@
+.Help-you {
+    padding: 0 16px; /* Убедитесь, что добавили паддинги для контейнера */
+}
+
+.black-line {
+    height: 2px; /* Высота полосы */
+    background-color: black; /* Цвет полосы */
+    margin: 54px 0; /* Отступ сверху и снизу от полосы */
+    width: 100%; /* Ширина полосы на всю ширину контейнера */
+}
+
+.Help-you-text{
+flex-shrink: 0;
+ color: var(--brown);
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+line-height: 1.1;
+letter-spacing: -0.04em;
+font-variant: small-caps;
+flex-shrink: 0;
+}
+
+.Help-you-history-text{
+    flex-shrink: 0;
+    color: var(--brown);
+   font-family: Montserrat;
+   font-style: normal;
+   font-size: 20px;
+   font-weight: 400;
+   font-variant: small-caps;
+   line-height: 1.1;
+   letter-spacing: -0.04em;
+   }

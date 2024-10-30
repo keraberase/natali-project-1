@@ -73,7 +73,7 @@ align-self: stretch;
 .consultation-span{
 font-weight: 600;
 }
-.telegram-btn{
+.consultation-telegram-btn{
     display: flex;
     padding: 24px 60px 23px 60px;
     justify-content: center;
@@ -90,13 +90,13 @@ font-weight: 600;
     letter-spacing: -0.04em;
     text-transform: uppercase;
 }
-.telegram-btn:hover,
-.telegram-btn:active {
+.consultation-telegram-btn:hover,
+.consultation-telegram-btn:active {
     background-color: var(--orange);
     color: var(--white);
 }
 
-.button-container {
+.consultation-button-container {
     display: flex; /* Используем Flexbox */
     justify-content: center; /* Центрируем по горизонтали */
     align-items: center; /* Центрируем по вертикали */

@@ -128,9 +128,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Переход на телеграм кнопка
-
-document.getElementById('telegramButton').addEventListener('click', function() {
-    window.location.href = 'https://t.me/natalyabotyanovskaya';
+document.querySelectorAll('.telegram-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        window.open('https://t.me/natalyabotyanovskaya', '_blank');
+    });
 });
-
