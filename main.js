@@ -1,4 +1,4 @@
-import $ from 'jquery';
+
 
 // Обработчик вращения изображений при прокрутке
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,7 +102,18 @@ modal.appendChild(modalImg);
 // Переменная для текущего индекса изображения
 let currentImageIndex = 0;
 
-// Обработчик закрытия модального окна при клике вне изображения
+// Функция для открытия модального окна
+const openModal = (imgSrc, index) => {
+    if (imgSrc) {
+        modalImg.src = imgSrc;
+        modal.style.display = 'flex';
+        currentImageIndex = index;
+    } else {
+        console.error('Изображение не найдено по пути:', imgSrc);
+    }
+};
+
+// Закрытие модального окна при клике вне изображения
 modal.addEventListener('click', (event) => {
     if (event.target !== modalImg) {
         modal.style.display = 'none';
@@ -113,19 +124,13 @@ modal.addEventListener('click', (event) => {
 document.querySelectorAll('.certificate-image').forEach((image, index) => {
     image.addEventListener('click', () => {
         const highResSrc = image.getAttribute('data-full');
-        if (highResSrc) { // Проверка на наличие изображения
-            modalImg.src = highResSrc;
-            modal.style.display = 'flex';
-            currentImageIndex = index; // Установка текущего индекса
-        } else {
-            console.error('Изображение не найдено по пути:', highResSrc);
-        }
+        openModal(highResSrc, index);
     });
 });
 
 // Закрытие модального окна при нажатии Esc
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
+    if (event.key === 'Escape' && modal.style.display === 'flex') {
         modal.style.display = 'none';
     }
 });
