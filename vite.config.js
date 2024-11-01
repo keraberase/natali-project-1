@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { sync } from 'glob'; // Импортируйте sync из glob
+import { sync } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
@@ -8,7 +8,7 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: 'src',
+    root: 'src', // Указываем корневую папку с исходным кодом
     build: {
       sourcemap: true,
       rollupOptions: {
@@ -22,8 +22,11 @@ export default defineConfig(({ command }) => {
           entryFileNames: 'commonHelpers.js',
         },
       },
-      outDir: '../dist', // Убедитесь, что путь указан верно
+      outDir: '../dist', // Указываем выходную папку для сборки
     },
-    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+    plugins: [
+      injectHTML(),
+      FullReload(['./src/**/*.html'])
+    ],
   };
 });
