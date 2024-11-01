@@ -33,95 +33,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Слайдер для сертификатов
-    const slider = document.querySelector('.certificates-wrapper');
-    const certificates = document.querySelectorAll('.certificate'); // Исправлено на '.certificate'
-    let currentIndex = 0;
-    const certificateWidth = 365; // Установите ширину сертификата 365px
-
-    if (slider && certificates.length > 0) {
-        const updateScrollPosition = () => {
-            // Используем requestAnimationFrame для более плавной анимации
-            requestAnimationFrame(() => {
-                slider.style.transform = `translateX(${-currentIndex * certificateWidth}px)`; // Прокрутка
-            });
-        };
-
-        const scroll = (direction) => {
-            currentIndex = (currentIndex + direction + certificates.length) % certificates.length; // Зацикливание
-            updateScrollPosition();
-        };
-
-        // Автоматическая прокрутка
-        let scrollInterval = setInterval(() => scroll(1), 3000); // Прокрутка каждые 3 секунды
-
-        // Остановка и возобновление прокрутки
-        slider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
-        slider.addEventListener('mouseleave', () => scrollInterval = setInterval(() => scroll(1), 3000));
-        slider.addEventListener('click', (event) => {
-            const clickX = event.clientX - slider.getBoundingClientRect().left;
-            scroll(clickX < slider.clientWidth / 2 ? -1 : 1); // Прокрутка влево или вправо
-        });
-    }
-
-    // Инициализация Swiper
-    const swiperContainer = document.querySelector('.swiper-container');
-    if (swiperContainer) {
-        new Swiper(swiperContainer, {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            centeredSlides: true,
-            loop: true,
-            grabCursor: true,
-            breakpoints: {
-                768: { slidesPerView: 1 },
-                1024: { slidesPerView: 3 },
-            },
-            effect: 'coverflow',
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-            },
-        });
-    }
-
-    // Модальное окно для изображений сертификатов
-    const modal = document.querySelector('.modal');
-    const modalImg = modal.querySelector('img');
-
-    document.querySelectorAll('.certificate-image').forEach((image) => {
-        image.addEventListener('click', () => {
-            const highResSrc = image.getAttribute('data-full');
-            openModal(highResSrc);
-        });
+   // Инициализация Swiper для слайдера сертификатов
+const swiperContainer = document.querySelector('.swiper-container');
+if (swiperContainer) {
+    new Swiper(swiperContainer, {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 3000, // Автоматическая прокрутка каждые 3 секунды
+            disableOnInteraction: false, // Останавливает прокрутку при взаимодействии
+        },
+        breakpoints: {
+            768: { slidesPerView: 1 },
+            1024: { slidesPerView: 3 },
+        },
+        effect: 'coverflow',
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+        },
     });
+}
 
-    modal.addEventListener('click', () => {
+// Функции для открытия и закрытия модального окна с изображением
+const modal = document.querySelector('.modal');
+const modalImg = modal.querySelector('img');
+
+// Добавляем обработчики кликов на все изображения сертификатов
+document.querySelectorAll('.certificate-image').forEach((image) => {
+    image.addEventListener('click', () => {
+        const highResSrc = image.getAttribute('data-full'); // Путь к высококачественному изображению
+        openModal(highResSrc);
+    });
+});
+
+// Функция для открытия модального окна
+function openModal(imgSrc) {
+    modalImg.src = imgSrc;
+    modal.style.display = 'flex';
+}
+
+// Закрытие модального окна при клике вне изображения или на клавишу "Escape"
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
         modal.style.display = 'none';
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.style.display === 'flex') {
-            modal.style.display = 'none';
-        }
-    });
-
-    function openModal(imgSrc) {
-        const tempImage = new Image();
-        tempImage.onload = () => {
-            modalImg.src = imgSrc;
-            modal.style.display = 'flex';
-        };
-        tempImage.onerror = () => {
-            console.error('Изображение не найдено по пути:', imgSrc);
-            alert('Изображение не найдено. Проверьте, что файл загружен на сервер.');
-            modal.style.display = 'none'; // Скрыть модал при ошибке
-        };
-        tempImage.src = imgSrc;
     }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    }
+});
+
 
     // Кнопки для перехода на Telegram и Instagram
     document.querySelectorAll('.telegram-btn').forEach(button => {
