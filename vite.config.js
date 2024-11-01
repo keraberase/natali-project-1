@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import glob from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
@@ -7,22 +8,22 @@ export default defineConfig(({ command }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    root: '.', // Указываем корневую папку проекта
+    root: '.', // Указание корневой папки проекта
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: './index.html', // Указываем на ваш единственный HTML файл
+        input: glob.sync('./*.html'), // Указываем, что HTML файлы находятся в корне
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              return 'vendor'; // Создаем чанк для зависимостей из node_modules
+              return 'vendor';
             }
           },
-          entryFileNames: 'commonHelpers.js', // Указываем имя выходного файла
+          entryFileNames: 'commonHelpers.js',
         },
       },
-      outDir: 'dist', // Выходная папка для сборки
+      outDir: './dist', // Папка для выходных файлов
     },
-    plugins: [injectHTML(), FullReload(['./*.html'])], // Указываем на HTML файл в корне
+    plugins: [injectHTML(), FullReload(['./**/*.html'])],
   };
 });

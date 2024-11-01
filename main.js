@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Инициализация Swiper
 document.addEventListener('DOMContentLoaded', () => {
     const swiperContainer = document.querySelector('.swiper-container');
 
@@ -88,65 +87,41 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     }
-});
 
-// Модальное окно для сертификатов
-const modal = document.createElement('div');
-modal.classList.add('modal');
-modal.style.display = 'none'; // Изначально скрыто
-document.body.appendChild(modal);
+    const modal = document.querySelector('.modal');
+    const modalImg = modal.querySelector('img');
 
-const modalImg = document.createElement('img');
-modal.appendChild(modalImg);
+    document.querySelectorAll('.certificate-image').forEach((image, index) => {
+        image.addEventListener('click', () => {
+            const highResSrc = image.getAttribute('data-full');
+            openModal(highResSrc, index);
+        });
+    });
 
-// Переменная для текущего индекса изображения
-let currentImageIndex = 0;
-
-// Функция для открытия модального окна с проверкой загрузки изображения
-const openModal = (imgSrc, index) => {
-    const tempImage = new Image();
-    tempImage.onload = () => {
-        modalImg.src = imgSrc;
-        modal.style.display = 'flex';
-        currentImageIndex = index;
-    };
-    tempImage.onerror = () => {
-        console.error('Изображение не найдено по пути:', imgSrc);
-        alert('Изображение не найдено. Проверьте, что файл загружен на сервер.');
-    };
-    tempImage.src = imgSrc;
-};
-
-// Закрытие модального окна при клике вне изображения
-modal.addEventListener('click', (event) => {
-    if (event.target !== modalImg) {
+    modal.addEventListener('click', () => {
         modal.style.display = 'none';
-    }
-});
+    });
 
-// Обработчик кликов на сертификатах
-document.querySelectorAll('.certificate-image').forEach((image, index) => {
-    image.addEventListener('click', () => {
-        const highResSrc = image.getAttribute('data-full');
-        
-        // Проверка, что путь указан
-        if (highResSrc) {
-            modalImg.src = highResSrc;
-            modal.style.display = 'flex';
-            currentImageIndex = index;
-            console.log(`Изображение загружается из: ${highResSrc}`);
-        } else {
-            console.error('Изображение не найдено по пути:', highResSrc);
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
         }
     });
-});
 
-// Закрытие модального окна при нажатии Esc
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.style.display === 'flex') {
-        modal.style.display = 'none';
+    function openModal(imgSrc, index) {
+        const tempImage = new Image();
+        tempImage.onload = () => {
+            modalImg.src = imgSrc;
+            modal.style.display = 'flex';
+        };
+        tempImage.onerror = () => {
+            console.error('Изображение не найдено по пути:', imgSrc);
+            alert('Изображение не найдено. Проверьте, что файл загружен на сервер.');
+        };
+        tempImage.src = imgSrc;
     }
 });
+
 
 document.querySelectorAll('.telegram-btn').forEach(button => {
     button.addEventListener('click', function() {
