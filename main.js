@@ -102,15 +102,19 @@ modal.appendChild(modalImg);
 // Переменная для текущего индекса изображения
 let currentImageIndex = 0;
 
-// Функция для открытия модального окна
+// Функция для открытия модального окна с проверкой загрузки изображения
 const openModal = (imgSrc, index) => {
-    if (imgSrc) {
+    const tempImage = new Image();
+    tempImage.onload = () => {
         modalImg.src = imgSrc;
         modal.style.display = 'flex';
         currentImageIndex = index;
-    } else {
+    };
+    tempImage.onerror = () => {
         console.error('Изображение не найдено по пути:', imgSrc);
-    }
+        alert('Изображение не найдено. Проверьте, что файл загружен на сервер.');
+    };
+    tempImage.src = imgSrc;
 };
 
 // Закрытие модального окна при клике вне изображения
