@@ -11,8 +11,8 @@
     ],
     "routes": [
       {
-        "src": "/src/images/(.*)",
-        "dest": "/src/images/$1"
+        "src": "/assets/images/(.*)",
+        "dest": "/assets/images/$1"
       }
     ]
   }
