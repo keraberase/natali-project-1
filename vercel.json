@@ -2,21 +2,21 @@
     "version": 2,
     "builds": [
       {
-        "src": "index.html", 
-        "use": "@vercel/static-build", 
+        "src": "index.html",
+        "use": "@vercel/static-build",
         "config": {
-          "distDir": "dist" 
+          "distDir": "dist"
         }
       }
     ],
     "routes": [
       {
         "src": "/images/(.*)",
-        "dest": "/images/$1" 
+        "dest": "/images/$1"
       },
       {
         "src": "/favicon.ico",
-        "dest": "/favicon.ico" 
+        "dest": "/favicon.ico"
       },
       {
         "src": "/(.*)",
