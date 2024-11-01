@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import * as glob from 'glob'; // Исправленный импорт
+import { glob } from 'glob'; // Обновлено
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 
@@ -27,3 +27,4 @@ export default defineConfig(({ command }) => {
     plugins: [injectHTML(), FullReload(['./**/*.html'])],
   };
 });
+
