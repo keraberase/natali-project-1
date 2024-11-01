@@ -13,12 +13,13 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync('./src/*.html'),
+        input: glob.sync('./src/**/*.html'), // Рекурсивный поиск всех HTML
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              return 'vendor';
+              return 'vendor'; // Все модули из node_modules в отдельный чанк
             }
+            // Выделите другие чанк файлы при необходимости
           },
           entryFileNames: chunkInfo => {
             if (chunkInfo.name === 'commonHelpers') {
@@ -28,20 +29,20 @@ export default defineConfig(({ command }) => {
           },
           assetFileNames: assetInfo => {
             if (assetInfo.name && assetInfo.name.endsWith('.html')) {
-              return '[name].[ext]';
+              return '[name].[ext]'; // HTML-файлы
             }
-            return 'assets/[name]-[hash][extname]';
+            return 'assets/[name]-[hash][extname]'; // Другие ресурсы
           },
         },
       },
-      outDir: '../dist',
+      outDir: '../dist', // Путь для выходных файлов
       emptyOutDir: true,
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
+      FullReload(['./src/**/*.html']),
       SortCss({
-        sort: 'mobile-first',
+        sort: 'mobile-first', // Сортировка медиа-запросов
       }),
     ],
   };
