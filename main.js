@@ -1,4 +1,5 @@
-
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
 
 // Обработчик вращения изображений при прокрутке
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,10 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
 
-// Слайдер для сертификатов
-document.addEventListener('DOMContentLoaded', () => {
+    // Слайдер для сертификатов
     const slider = document.querySelector('.certificates-wrapper');
     const certificates = document.querySelectorAll('.Сertificate');
     let currentIndex = 0;
@@ -61,11 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
             scroll(clickX < slider.clientWidth / 2 ? -1 : 1); // Прокрутка влево или вправо
         });
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Инициализация Swiper
     const swiperContainer = document.querySelector('.swiper-container');
-
     if (swiperContainer) {
         new Swiper(swiperContainer, {
             slidesPerView: 1,
@@ -88,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Модальное окно для изображений сертификатов
     const modal = document.querySelector('.modal');
     const modalImg = modal.querySelector('img');
 
@@ -120,28 +118,25 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         tempImage.src = imgSrc;
     }
-});
 
-
-document.querySelectorAll('.telegram-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        window.open('https://t.me/natalyabotyanovskaya', '_blank');
+    // Кнопки для перехода на Telegram и Instagram
+    document.querySelectorAll('.telegram-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            window.open('https://t.me/natalyabotyanovskaya', '_blank');
+        });
     });
-});
 
+    document.getElementById("instagramLink").addEventListener("click", function(event) {
+        event.preventDefault(); // Предотвращаем переход по умолчанию
 
-document.getElementById("instagramLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Предотвращаем переход по умолчанию
+        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+        const appLink = "instagram://user?username=natalya_botyanovska_psy";
 
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const appLink = "instagram://user?username=natalya_botyanovska_psy";
-
-    if (isMobile) {
-        // Пробуем открыть приложение Instagram
-        const appOpened = window.location.href = appLink; // Пытаемся открыть приложение Instagram
-
-
-    } else {
-        alert("Откройте Instagram на мобильном устройстве.");
-    }
+        if (isMobile) {
+            // Пробуем открыть приложение Instagram
+            const appOpened = window.location.href = appLink; // Пытаемся открыть приложение Instagram
+        } else {
+            alert("Откройте Instagram на мобильном устройстве.");
+        }
+    });
 });
