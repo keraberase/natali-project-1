@@ -11,16 +11,16 @@
     ],
     "routes": [
       {
-        "src": "/src/images/(.*)",
-        "dest": "/src/images/$1"
+        "src": "/images/(.*)",
+        "dest": "/dist/images/$1"
       },
       {
         "src": "/favicon.ico",
-        "dest": "/favicon.ico"
+        "dest": "/dist/favicon.ico"
       },
       {
-        "src": "/src/(.*)",
-        "dest": "/src/index.html"
+        "src": "/(.*)",
+        "dest": "/dist/index.html"
       }
     ]
   }
