@@ -128,7 +128,16 @@ modal.addEventListener('click', (event) => {
 document.querySelectorAll('.certificate-image').forEach((image, index) => {
     image.addEventListener('click', () => {
         const highResSrc = image.getAttribute('data-full');
-        openModal(highResSrc, index);
+        
+        // Проверка, что путь указан
+        if (highResSrc) {
+            modalImg.src = highResSrc;
+            modal.style.display = 'flex';
+            currentImageIndex = index;
+            console.log(`Изображение загружается из: ${highResSrc}`);
+        } else {
+            console.error('Изображение не найдено по пути:', highResSrc);
+        }
     });
 });
 
