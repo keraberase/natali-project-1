@@ -2,6 +2,13 @@ import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Логируем пути к изображениям для проверки
+    console.log('Image paths:', [
+        '/images/Certificate4-2x.jpg',
+        '/images/Certificate3-2x.jpg',
+        '/images/Certificate2-2x.jpg'
+    ]);
+
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
 

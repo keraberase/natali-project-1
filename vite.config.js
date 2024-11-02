@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import {glob} from 'glob';
+import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
@@ -23,7 +23,7 @@ export default defineConfig(({ command }) => {
           entryFileNames: 'commonHelpers.js',
         },
       },
-      outDir: '../dist',
+      outDir: '../dist', // Убедитесь, что вы хотите оставить это местоположение
     },
     plugins: [
       injectHTML(),
@@ -31,8 +31,8 @@ export default defineConfig(({ command }) => {
       viteStaticCopy({
         targets: [
           {
-            src: 'images/*', // Путь к вашим изображениям
-            dest: 'images'    // Куда копировать
+            src: 'images/**/*',
+            dest: 'images'
           }
         ],
       }),
