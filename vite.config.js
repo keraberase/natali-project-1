@@ -27,7 +27,7 @@ export default defineConfig(({ command }) => {
             assetInfo.name && assetInfo.name.endsWith('.html') ? '[name].[ext]' : 'assets/[name]-[hash][extname]',
         },
       },
-      outDir: '../dist',
+      outDir: './dist',
       emptyOutDir: true,
     },
     plugins: [
