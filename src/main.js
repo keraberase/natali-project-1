@@ -1,4 +1,3 @@
-
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
@@ -43,25 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (basisHead && basisSection) {
             const { top, bottom, height } = basisSection.getBoundingClientRect();
             const isVisible = top < window.innerHeight && bottom > 0;
-    
-            basisHead.style.transform = isVisible
-                ? `translate(-50%, 0) rotate(${(window.scrollY - top + height) * 0.1}deg)`
-                : 'translate(-50%, 0) rotate(0deg)';
+
+            // Новый расчет вращения
+            const rotateAmount = isVisible ? (window.scrollY - top + height) * 0.1 : 0;
+            basisHead.style.transform = `translate(-50%, 0) rotate(${rotateAmount}deg)`;
         }
-    
+
         // Обработка вращения для .about-me-head
         const aboutMeSection = document.querySelector('.image-container-about-me');
         if (aboutMeHead && aboutMeSection) {
             const { top, bottom, height } = aboutMeSection.getBoundingClientRect();
             const isVisible = top < window.innerHeight && bottom > 0;
-    
-            aboutMeHead.style.transform = isVisible
-                ? `translate(-50%, 0) rotate(${(window.scrollY - top + height) * 0.1}deg)`
-                : 'translate(-50%, 0) rotate(0deg)';
+
+            // Новый расчет вращения
+            const rotateAmount = isVisible ? (window.scrollY - top + height) * 0.1 : 0;
+            aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotateAmount}deg)`;
         }
     });
 
-   
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer) {
         new Swiper(swiperContainer, {
@@ -124,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Откройте Instagram на мобильном устройстве.");
         }
     });
+
     const arrowUp = document.querySelector('.arrow-up');
 
     // Обработчик события для прокрутки вверх
