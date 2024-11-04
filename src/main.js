@@ -1,14 +1,8 @@
+// Импортируем Swiper и его стили
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Логируем пути к изображениям для проверки
-    console.log('Image paths:', [
-        '/images/Certificate4-2x.jpg',
-        '/images/Certificate3-2x.jpg',
-        '/images/Certificate2-2x.jpg'
-    ]);
-
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
 
@@ -39,98 +33,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Инициализация Swiper для слайдера сертификатов
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer) {
         new Swiper(swiperContainer, {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            centeredSlides: true,
-            loop: true,
-            autoplay: {
-                delay: 3000, // Автоматическая прокрутка каждые 3 секунды
-                disableOnInteraction: false, // Останавливает прокрутку при взаимодействии
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            effect: 'coverflow',
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
+            slidesPerView: 1.3, // Показывать один слайд полностью и частично два соседних
+            centeredSlides: true, // Центрирование активного слайда
+            spaceBetween: 20, // Отступы между слайдами
+            loop: true, // Зацикливание
+            autoplay: { // Автопрокрутка
+                delay: 3000,
+                disableOnInteraction: false, // Продолжить автопрокрутку после взаимодействия
             },
         });
     }
 
-    // Функции для открытия и закрытия модального окна с изображением
+    // Логика для модального окна
     const modal = document.querySelector('.modal');
-    const modalImg = modal.querySelector('img');
+    const modalImg = modal ? modal.querySelector('img') : null;
 
-    // Измените обработку кликов на изображения
-    document.querySelector('.swiper-wrapper').addEventListener('click', (event) => {
-        if (event.target.classList.contains('certificate-image')) {
-            const highResSrc = event.target.getAttribute('data-full');
-            openModal(highResSrc);
+    if (modal && modalImg) {
+        document.querySelectorAll('.certificate-image').forEach((image) => {
+            image.addEventListener('click', () => {
+                openModal(image.src);
+            });
+        });
+
+        function openModal(imgSrc) {
+            modalImg.src = imgSrc;
+            modal.style.display = 'flex'; // Изменяем стиль на 'flex', чтобы показать модальное окно
         }
-    });
 
-    // Функция для открытия модального окна
-    function openModal(imgSrc) {
-        modalImg.src = imgSrc;
-        modal.style.display = 'flex';
+        // Закрытие модального окна при клике на него
+        modal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Закрытие модального окна при нажатии на клавишу Esc
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+        });
     }
-
-    // Закрытие модального окна при клике вне изображения или на клавишу "Escape"
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal || event.target.tagName === 'IMG') {
-            modal.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.style.display === 'flex') {
-            modal.style.display = 'none';
-        }
-    });
-
-    // Проверка наличия изображений
-    const images = document.querySelectorAll('.certificate-image');
-    images.forEach(image => {
-        const img = new Image();
-        img.src = image.getAttribute('data-full');
-        img.onerror = () => {
-            console.error(`Image not found: ${image.getAttribute('data-full')}`);
-        };
-    });
 
     // Кнопки для перехода на Telegram и Instagram
     document.querySelectorAll('.telegram-btn').forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', function() {
             window.open('https://t.me/natalyabotyanovskaya', '_blank');
         });
     });
 
-    document.getElementById("instagramLink").addEventListener("click", (event) => {
+    document.getElementById("instagramLink").addEventListener("click", function(event) {
         event.preventDefault(); // Предотвращаем переход по умолчанию
+
         const isMobile = /Mobi|Android/i.test(navigator.userAgent);
         const appLink = "instagram://user?username=natalya_botyanovska_psy";
-        const webLink = "https://www.instagram.com/natalya_botyanovska_psy/";
 
         if (isMobile) {
-            window.location.href = appLink; 
-            setTimeout(() => {
-                window.location.href = webLink; // Перенаправляем на веб, если приложение не открылось
-            }, 3000); // Ждем 3 секунды, прежде чем перенаправить
+            window.location.href = appLink; // Пытаемся открыть приложение Instagram
         } else {
-            window.open(webLink, '_blank'); // Для десктопа
+            alert("Откройте Instagram на мобильном устройстве.");
         }
     });
 });

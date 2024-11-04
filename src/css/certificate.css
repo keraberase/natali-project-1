@@ -1,90 +1,51 @@
 .certificate {
-    
-    padding: 74px 0 44px 0; /* Отступы секции */
-    text-align: center; /* Центрирование текста */
-    backdrop-filter: blur(10px); /* Эффект размытия фона */
-    overflow: hidden; /* Скрываем переполнение */
+    padding: 74px 0 44px 0;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    overflow: visible; /* Этот стиль не обязателен, если у вас нет скрытых элементов */
     flex-shrink: 0;
-    min-width: 365px; /* Ширина каждого сертификата */
-    margin-right: 10px;
+    min-width: 365px;
     margin-bottom: 24px;
-    object-fit: cover;
-}
-
-.certificate-text {
-    color: var(--brown);
-    text-align: left;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 20px; /* Отступ сверху */
-    line-height: 1.1;
-letter-spacing: -0.04em;
-}
-
-.certificates-slider {
-    position: relative;
-    overflow: hidden; /* Скрываем переполнение */
-}
-
-.certificates-wrapper {
-    display: flex; /* Установка флекс-контейнера */
-    overflow-x: auto; /* Позволяет прокручивать в горизонтальном направлении */
-    width: 100%; /* Занимает всю ширину экрана */
-    position: relative; /* Относительное позиционирование */
-    padding: 20px 0; /* Добавьте отступы, если это необходимо */
-}
-
-.certificates-wrapper .Certificate {
-    transition: transform 0.3s ease; /* Плавный переход при наведении */
-}
-
-.certificates-wrapper .Certificate.active {
-    transform: scale(1.1); /* Увеличение сертификата при выделении */
-    z-index: 1; /* Подъем над другими сертификатами */
-}
-
-.certificate-image {
-    flex: 0 0 auto; /* Установка фиксированной ширины */
-    width: 365px; /* Установите ширину сертификата */
-    margin: 0 5px; /* Отступы между сертификатами */
 }
 
 .swiper-container {
-    width: 100%;
-    padding: 20px 0;
-  }
-  
-  .swiper-slide {
+    width: 100%; /* Используем всю ширину контейнера */
+    overflow: visible; /* Разрешаем показывать соседние элементы */
+    padding: 0 20px; /* Отступы по бокам */
+}
+
+.swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.6; /* Прозрачность для боковых карточек */
+    width: 220px; /* Ширина для каждого слайда */
+    opacity: 0.6;
     transition: opacity 0.3s ease;
+    /* Добавим отступ слева, чтобы слайд не прилипал к краю */
+    margin: 0 10px; /* Отступы между слайдами */
 }
 
 .swiper-slide-active {
-    opacity: 1; /* Полная видимость активного сертификата */
+    opacity: 1; /* Полная видимость активного слайда */
 }
-  
+
 .modal {
-    display: none; /* Изначально скрыто */
-    position: fixed; /* Фиксированное позиционирование */
-    top: 0; /* К верхнему краю окна */
-    left: 0; /* К левому краю окна */
-    width: 100vw; /* Полная ширина окна */
-    height: 100vh; /* Полная высота окна */
-    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    z-index: 1000; /* Установите высокий z-index, чтобы перекрыть другие элементы */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 .modal img {
-    max-width: 90%; /* Максимальная ширина изображения 90% */
-    max-height: 90%; /* Максимальная высота изображения 90% */
-    object-fit: contain; /* Сохранение соотношения сторон */
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
 
 .modal-button {
@@ -105,31 +66,31 @@ letter-spacing: -0.04em;
     right: 10px;
 }
 
-
-.information{
-min-width: 365px;
-display: flex;
-padding: 44px 0px 44px 0px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border: 2px solid var(--brown);
-background: var(--brown);
-margin-bottom: 24px;
+.information {
+    min-width: 365px;
+    display: flex;
+    padding: 44px 0;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid var(--brown);
+    background: var(--brown);
+    margin-bottom: 24px;
 }
-.information-text{
 
-min-width: 333px;
-font-family: Montserrat;
+.information-text {
+    min-width: 333px;
+    font-family: Montserrat;
     color: var(--white);
-font-size: 20px;
-font-variant: small-caps;
-font-style: normal;
-line-height: 1.1;
-letter-spacing: -0.04em;
+    font-size: 20px;
+    font-variant: small-caps;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
 }
-/* Анимация прокрутки */
+
+/* Анимация автоматической прокрутки */
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); } /* Прокручиваем на 100% */
+    100% { transform: translateX(-100%); }
 }

@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite';
-import { glob } from 'glob';
+import {glob} from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig(({ command }) => {
   return {
@@ -12,6 +11,7 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
+
       rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
@@ -23,19 +23,8 @@ export default defineConfig(({ command }) => {
           entryFileNames: 'commonHelpers.js',
         },
       },
-      outDir: '../dist', // Убедитесь, что вы хотите оставить это местоположение
+      outDir: '../dist',
     },
-    plugins: [
-      injectHTML(),
-      FullReload(['./src/**/*.html']),
-      viteStaticCopy({
-        targets: [
-          {
-            src: 'images/**/*',
-            dest: 'images'
-          }
-        ],
-      }),
-    ],
+    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });
