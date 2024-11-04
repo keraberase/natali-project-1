@@ -11,7 +11,28 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.toggle('open'); // Переключаем класс для открытия/закрытия меню
         menuOpenButton.classList.toggle('active'); // Переключаем класс для кнопки
     });
+    const menuLinks = document.querySelectorAll('.mob-menu-link');
 
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Отменяем стандартное поведение ссылки
+
+            const targetId = this.getAttribute('href'); // Получаем id цели
+            const targetElement = document.querySelector(targetId); // Находим целевой элемент
+
+            if (targetElement) {
+                // Прокручиваем к целевому элементу
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Закрываем мобильное меню
+            mobileMenu.classList.remove('open');
+            menuOpenButton.classList.remove('active');
+        });
+    });
 
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
@@ -105,5 +126,16 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             alert("Откройте Instagram на мобильном устройстве.");
         }
+    });
+    const arrowUp = document.querySelector('.arrow-up');
+
+    // Обработчик события для прокрутки вверх
+    arrowUp.addEventListener('click', (event) => {
+        event.preventDefault(); // Предотвращаем стандартное поведение ссылки
+
+        window.scrollTo({
+            top: 0, // Позиция сверху
+            behavior: 'smooth' // Плавная прокрутка
+        });
     });
 });

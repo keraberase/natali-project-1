@@ -44,3 +44,20 @@ text-transform: capitalize;
     align-items: center; /* Центрируем по вертикали */
     margin-bottom: 136px;
 }
+
+
+.arrow-up {
+    position: fixed; /* Фиксированное позиционирование, чтобы стрелка оставалась на месте */
+    bottom: 20px; /* Отступ от низа экрана */
+    right: 16px; /* Отступ от правого края экрана */
+    z-index: 1000; /* Высокий z-index, чтобы стрелка была поверх всего контента */
+    cursor: pointer; /* Указатель курсора */
+}
+.arrow-icon{
+background: rgba(251, 71, 35, 0.50);
+;
+width: 30px;
+height: 30px;
+flex-shrink: 0;
+border-radius: 0 5px;
+}

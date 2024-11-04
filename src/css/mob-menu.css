@@ -46,6 +46,11 @@
     color: var(--medium-brown); 
 }
 
+.mob-menu-link:hover,
+.mob-menu-link:active{
+    color: var(--orange) 
+}
+
 .menu-open-button.active {
     position: fixed;
     background: transparent; /* Убираем фон кнопки, когда она активна */

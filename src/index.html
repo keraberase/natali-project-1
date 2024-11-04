@@ -41,11 +41,12 @@
                     </svg>
                 </button>
                 <ul class="mob-menu-list">
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">Основні принципи</a></li>
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">Сеттинг</a></li>
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">Конфіденційність</a></li>
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">Соціальні мережі</a></li>
-                    <li class="mob-menu-item"><a class="mob-menu-link" href="">Консультація</a></li>
+                    <li class="mob-menu-item"><a class="mob-menu-link" href="#Setting">Сеттинг</a></li>
+                    <li class="mob-menu-item"><a class="mob-menu-link" href="#Consultation">Консультація</a></li>
+                    <li class="mob-menu-item"><a class="mob-menu-link" href="#Client">Основні принципи</a></li>
+                    <li class="mob-menu-item"><a class="mob-menu-link" href="#Confidentiality">Конфіденційність</a></li>
+                    <li class="mob-menu-item"><a class="mob-menu-link" href="#Social">Соціальні мережі</a></li>
+
                 </ul>
             </div>
     
@@ -228,10 +229,10 @@
         <section class="consultation">
             <div class="container">
                 <div class="consultation-content">
-                    <h2 class= "consultation-seting-head">Сеттинг</h2>
+                    <h2 class= "consultation-seting-head" id="Setting">Сеттинг</h2>
                     <h3 class="consultation-seting-meeting">Перша зустріч</h3>
                     <p class="consultation-seting-meeting-text">На першій зустрічі тривалістю 30 хв (зустріч безкоштовна) ми знайомимося, обговорюємо всі організаційні питання. Я розказую правила, Ви розповідаєте про себе, узгоджуємо час зустрічей.</p>
-                    <h2 class="consultation-title">Консультації</h2>
+                    <h2 class="consultation-title" id="Consultation">Консультації</h2>
                     <ul class="consultation-list">
                         <li class="consultation-list-content">
                              <svg class="consultation-icon" height="47" width="47" fill="#4C4645">
@@ -303,7 +304,7 @@
                 </div>
             </div>
         </section>
-        <section class="client">
+        <section class="client" id="Client">
             <div class="container">
                 <div class="client-content">
                     <h2 class= "client-head">Основні принципи для клієнта</h2>
@@ -349,7 +350,7 @@
             </div>
     </div>
 
-    <section class="confidentiality">
+    <section class="confidentiality" id="Confidentiality">
         <div class="container">
             <h2 class="confidentiality-title">Конфіденційність</h2>
             <div class="confidentiality-cards">
@@ -380,7 +381,7 @@
             </div>
         </div>
     </section>
-    <section class="social">
+    <section class="social" id="Social">
         <div class="container">
             <div class="social-content">
             <h2 class="social-text">Соціальні мережі</h2>
@@ -399,7 +400,16 @@
     <div class="container">
         <div class="last-button-container">
             <button class="telegram-btn">Записатися на консультацію</button>
+            
         </div>
+        <div class="container">
+        <a 
+        class="arrow-up">
+        <svg class="arrow-icon" height="13" width="22" fill="#FFFFFF" >
+            <use href="./images/symbol-defs.svg#icon-Arrow"></use>
+        </svg>
+    </a>
+    </div>
     </main>
 
     <script src="./main.js" type="module"></script> <!-- Здесь ваш основной JavaScript файл -->
