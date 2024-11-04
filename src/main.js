@@ -133,13 +133,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Таймер для перехода на веб-версию, если приложение не установлено
             setTimeout(() => {
                 window.open(webLink, '_blank'); // Открываем веб-версию в новой вкладке
-            }, 500); // Пауза 500 мс перед переходом на веб-версию
+            }, 1000); // Пауза 1000 мс перед переходом на веб-версию
         } else {
             // На ПК сразу открывается веб-версия в новой вкладке
             window.open(webLink, '_blank');
         }
-    
     });
+    
     
 
     const arrowUp = document.querySelector('.arrow-up');
