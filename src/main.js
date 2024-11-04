@@ -33,30 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
 
     window.addEventListener('scroll', () => {
+        // Получаем текущую позицию прокрутки
+        const scrollY = window.scrollY;
+    
         // Обработка вращения для .basis-head
         const basisSection = document.querySelector('.basis');
         if (basisHead && basisSection) {
-            const { top, bottom, height } = basisSection.getBoundingClientRect();
-            const isVisible = top < window.innerHeight && bottom > 0;
-
-            // Новый расчет вращения
-            const rotateAmount = isVisible ? (window.scrollY - top + height) * 0.1 : 0;
-            basisHead.style.transform = `translate(-50%, 0) rotate(${rotateAmount}deg)`;
+            const sectionTop = basisSection.offsetTop; // Позиция верхней границы секции
+            const rotation = (scrollY - sectionTop) * 0.1; // Расчет угла вращения
+    
+            basisHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`; // Применяем вращение
         }
-
+    
         // Обработка вращения для .about-me-head
         const aboutMeSection = document.querySelector('.image-container-about-me');
         if (aboutMeHead && aboutMeSection) {
-            const { top, bottom, height } = aboutMeSection.getBoundingClientRect();
-            const isVisible = top < window.innerHeight && bottom > 0;
-
-            // Новый расчет вращения
-            const rotateAmount = isVisible ? (window.scrollY - top + height) * 0.1 : 0;
-            aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotateAmount}deg)`;
+            const sectionTop = aboutMeSection.offsetTop; // Позиция верхней границы секции
+            const rotation = (scrollY - sectionTop) * 0.1; // Расчет угла вращения
+    
+            aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`; // Применяем вращение
         }
     });
 
