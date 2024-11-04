@@ -37,28 +37,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
 
+    let isScrolling = false;
     window.addEventListener('scroll', () => {
-        // Получаем текущую позицию прокрутки
-        const scrollY = window.scrollY;
-    
-        // Обработка вращения для .basis-head
-        const basisSection = document.querySelector('.basis');
-        if (basisHead && basisSection) {
-            const sectionTop = basisSection.offsetTop; // Позиция верхней границы секции
-            const rotation = (scrollY - sectionTop) * 0.1; // Расчет угла вращения
-    
-            basisHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`; // Применяем вращение
-        }
-    
-        // Обработка вращения для .about-me-head
-        const aboutMeSection = document.querySelector('.image-container-about-me');
-        if (aboutMeHead && aboutMeSection) {
-            const sectionTop = aboutMeSection.offsetTop; // Позиция верхней границы секции
-            const rotation = (scrollY - sectionTop) * 0.1; // Расчет угла вращения
-    
-            aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`; // Применяем вращение
+        if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(() => {
+                updateHeadRotation();
+                isScrolling = false;
+            });
         }
     });
+
+    function updateHeadRotation() {
+        const scrollY = window.scrollY;
+        const basisSection = document.querySelector('.basis');
+        if (basisHead && basisSection) {
+            const sectionTop = basisSection.offsetTop;
+            const rotation = (scrollY - sectionTop) * 0.1;
+            basisHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
+        }
+
+        const aboutMeSection = document.querySelector('.image-container-about-me');
+        if (aboutMeHead && aboutMeSection) {
+            const sectionTop = aboutMeSection.offsetTop;
+            const rotation = (scrollY - sectionTop) * 0.1;
+            aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
+        }
+    }
 
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer) {
