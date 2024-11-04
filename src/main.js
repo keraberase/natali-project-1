@@ -37,32 +37,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
 
-    // Проверяем наличие элементов перед добавлением события
-    if (basisHead || aboutMeHead) {
-        window.addEventListener('scroll', () => {
-            // Обработка вращения для .basis-head
-            const basisSection = document.querySelector('.basis');
-            if (basisHead && basisSection) {
-                const { top, bottom, height } = basisSection.getBoundingClientRect();
-                const isVisible = top < window.innerHeight && bottom > 0;
-
-                basisHead.style.transform = isVisible
-                    ? `translate(-50%, 0) rotate(${(window.scrollY - top + height) * 0.1}deg)`
-                    : 'translate(-50%, 0) rotate(0deg)';
-            }
-
-            // Обработка вращения для .about-me-head
-            const aboutMeSection = document.querySelector('.image-container-about-me');
-            if (aboutMeHead && aboutMeSection) {
-                const { top, bottom, height } = aboutMeSection.getBoundingClientRect();
-                const isVisible = top < window.innerHeight && bottom > 0;
-
-                aboutMeHead.style.transform = isVisible
-                    ? `translate(-50%, 0) rotate(${(window.scrollY - top + height) * 0.1}deg)`
-                    : 'translate(-50%, 0) rotate(0deg)';
-            }
-        });
-    }
+    window.addEventListener('scroll', () => {
+        // Обработка вращения для .basis-head
+        const basisSection = document.querySelector('.basis');
+        if (basisHead && basisSection) {
+            const { top, bottom, height } = basisSection.getBoundingClientRect();
+            const isVisible = top < window.innerHeight && bottom > 0;
+    
+            basisHead.style.transform = isVisible
+                ? `translate(-50%, 0) rotate(${(window.scrollY - top + height) * 0.1}deg)`
+                : 'translate(-50%, 0) rotate(0deg)';
+        }
+    
+        // Обработка вращения для .about-me-head
+        const aboutMeSection = document.querySelector('.image-container-about-me');
+        if (aboutMeHead && aboutMeSection) {
+            const { top, bottom, height } = aboutMeSection.getBoundingClientRect();
+            const isVisible = top < window.innerHeight && bottom > 0;
+    
+            aboutMeHead.style.transform = isVisible
+                ? `translate(-50%, 0) rotate(${(window.scrollY - top + height) * 0.1}deg)`
+                : 'translate(-50%, 0) rotate(0deg)';
+        }
+    });
 
    
     const swiperContainer = document.querySelector('.swiper-container');
