@@ -23,14 +23,6 @@ p {
 a {
     text-decoration: none;
 }
-a:active {
-    color: inherit; /* Оставляет исходный цвет */
-    opacity: 0.7;   /* Временный эффект нажатия */
-}
-
-a:focus {
-    outline: none; /* Убирает обводку, которая появляется при фокусе */
-}
 
 ul,
 li {

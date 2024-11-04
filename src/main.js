@@ -129,8 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isMobile) {
             // Попытка открыть приложение Instagram
             window.location.href = appLink;
-
-            event.target.blur();
     
             // Таймер для перехода на веб-версию, если приложение не установлено
             setTimeout(() => {
