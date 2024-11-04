@@ -1,9 +1,22 @@
-/* Мобильные стили */
+.menu-open-button {
+    position: absolute; /* Абсолютное позиционирование внутри header */
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    background: rgba(255, 216, 195, 0.70); /* Фон кнопки совпадает с фоном меню */
+    border: none; /* Убираем границу у кнопки */
+    border-radius: 0px 20px; /* Закругленные углы */
+    z-index: 11; /* Высокий z-index для того, чтобы кнопка была над контентом */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background 0.3s ease; /* Плавный переход для фона */
+    padding: 10px; /* Отступы для кнопки */
+
+}
+
 .mob-menu-list {
     display: none; /* Скрываем мобильное меню по умолчанию */
     flex-direction: column; /* Вертикальное направление */
-    width: 100vw; /* Ширина меню на всю ширину экрана */
-    height: 100vh; /* Высота меню на всю высоту экрана */
+    width: 100%; /* Ширина меню на всю ширину экрана */
+    height: 100%; /* Высота меню на всю высоту экрана */
     background: rgba(255, 216, 195, 0.70); /* Фон для мобильного меню */
     position: fixed; /* Фиксируем модальное окно относительно экрана */
     top: 0; /* Расположим меню сверху */
@@ -12,9 +25,14 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
     border-radius: 0px 20px; /* Закругленные углы */
     z-index: 10; /* Устанавливаем высокий z-index, чтобы меню всегда было сверху */
-   
+    transform: translateY(-100%); /* Скрываем меню по вертикали */
+    transition: transform 0.3s ease; /* Плавный переход для выезжающего меню */
 }
 
+.mob-menu-list.open {
+    display: flex; /* Показываем меню */
+    transform: scaleY(1); /* Выдвигаем меню на экран */
+}
 
 .mob-menu-item {
     margin-bottom: 41px;
@@ -26,25 +44,11 @@
     color: var(--medium-brown); 
 }
 
-.menu-open-button {
-    position: absolute; /* Абсолютное позиционирование внутри модалки */
-    top: 10px; /* Отступ сверху */
-    right: 10px; /* Отступ справа */
-    background: rgba(255, 216, 195, 0.70); /* Фон кнопки */
-    fill: var(--medium-brown); /* Цвет иконки */
-    border-radius: 50%; /* Закругленные углы */
-    cursor: pointer; /* Курсор при наведении */
-    transition: background 0.3s ease; /* Плавный переход для фона */
-    padding: 10px; /* Padding для кнопки */
-    z-index: 20; /* Высокий z-index для того, чтобы кнопка была над контентом */
-}
-
-
-.menu-open-button:active {
-    background: rgba(255, 216, 195, 0.30);
+.menu-open-button.active {
+    background: transparent; /* Убираем фон кнопки, когда она активна */
 }
 
 .menu-open-button:focus {
     outline: none;
-    background: rgba(255, 216, 195, 0.30);
+
 }

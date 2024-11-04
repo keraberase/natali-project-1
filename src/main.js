@@ -3,6 +3,16 @@ import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const mobileMenu = document.querySelector('.mob-menu-list'); // Мобильное меню
+    const menuOpenButton = document.querySelector('.menu-open-button'); // Кнопка открытия меню
+
+    menuOpenButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open'); // Переключаем класс для открытия/закрытия меню
+        menuOpenButton.classList.toggle('active'); // Переключаем класс для кнопки
+    });
+
+
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
 
