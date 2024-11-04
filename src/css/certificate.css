@@ -2,7 +2,7 @@
     padding: 74px 0 44px 0;
     text-align: center;
     backdrop-filter: blur(10px);
-    overflow: visible; /* Этот стиль не обязателен, если у вас нет скрытых элементов */
+    overflow: hidden; /* Скрыть всё, что выходит за пределы контейнера */
     flex-shrink: 0;
     min-width: 365px;
     margin-bottom: 24px;
@@ -10,8 +10,12 @@
 
 .swiper-container {
     width: 100%; /* Используем всю ширину контейнера */
-    overflow: visible; /* Разрешаем показывать соседние элементы */
+    overflow: hidden; /* Прячем все, что выходит за пределы контейнера */
     padding: 0 20px; /* Отступы по бокам */
+}
+
+.swiper-wrapper {
+    display: flex; /* Flex для равномерного распределения слайдов */
 }
 
 .swiper-slide {
@@ -21,8 +25,8 @@
     width: 220px; /* Ширина для каждого слайда */
     opacity: 0.6;
     transition: opacity 0.3s ease;
-    /* Добавим отступ слева, чтобы слайд не прилипал к краю */
-    margin: 0 10px; /* Отступы между слайдами */
+    /* Убедитесь, что отступы между слайдами не слишком велики */
+    margin: 0 5px; /* Отступы между слайдами */
 }
 
 .swiper-slide-active {
