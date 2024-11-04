@@ -118,18 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
     document.getElementById("instagramLink").addEventListener("click", function(event) {
         event.preventDefault(); // Предотвращаем переход по умолчанию
-
-        const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    
         const appLink = "instagram://user?username=natalya_botyanovska_psy";
-
+        const webLink = "https://www.instagram.com/natalya_botyanovska_psy/";
+        const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    
         if (isMobile) {
-            window.location.href = appLink; // Пытаемся открыть приложение Instagram
+            // Попытка открыть приложение Instagram
+            window.location.href = appLink;
+    
+            // Таймер для перехода на веб-версию, если приложение не установлено
+            setTimeout(() => {
+                window.open(webLink, '_blank'); // Открываем веб-версию в новой вкладке
+            }, 500); // Пауза 500 мс перед переходом на веб-версию
         } else {
-            alert("Откройте Instagram на мобильном устройстве.");
+            // На ПК сразу открывается веб-версия в новой вкладке
+            window.open(webLink, '_blank');
         }
+    
     });
+    
 
     const arrowUp = document.querySelector('.arrow-up');
 
