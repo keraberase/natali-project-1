@@ -2,16 +2,16 @@
     padding: 74px 0 44px 0;
     text-align: center;
     backdrop-filter: blur(10px);
-    overflow: hidden; /* Скрыть всё, что выходит за пределы контейнера */
+    overflow: visible; /* Разрешаем показывать соседние элементы */
     flex-shrink: 0;
-    min-width: 365px;
+    min-width: 365px; /* Минимальная ширина для сертификатов */
     margin-bottom: 24px;
 }
 
 .swiper-container {
     width: 100%; /* Используем всю ширину контейнера */
-    overflow: hidden; /* Прячем все, что выходит за пределы контейнера */
-    padding: 0 20px; /* Отступы по бокам */
+    overflow: hidden; /* Скрываем все, что выходит за пределы контейнера */
+    padding: 0 20px; /* Паддинги по бокам */
 }
 
 .swiper-wrapper {
@@ -23,15 +23,15 @@
     justify-content: center;
     align-items: center;
     width: 220px; /* Ширина для каждого слайда */
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-    /* Убедитесь, что отступы между слайдами не слишком велики */
-    margin: 0 5px; /* Отступы между слайдами */
+    opacity: 0.5; /* Прозрачность для неактивных слайдов */
+    transition: opacity 0.3s ease; /* Анимация при смене слайда */
+    margin: 0 10px; /* Добавьте отступы между слайдами */
 }
 
 .swiper-slide-active {
     opacity: 1; /* Полная видимость активного слайда */
 }
+
 
 .modal {
     display: none;
@@ -51,6 +51,9 @@
     max-height: 90%;
     object-fit: contain;
 }
+
+/* Остальные стили остаются прежними */
+
 
 .modal-button {
     position: absolute;

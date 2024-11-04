@@ -33,15 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+   
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer) {
         new Swiper(swiperContainer, {
-            slidesPerView: 1.3, // Показывать один слайд полностью и частично два соседних
-            centeredSlides: true, // Центрирование активного слайда
-            spaceBetween: 20, // Отступы между слайдами
+            slidesPerView: 1.5, // Показываем один полный слайд и часть двух соседних
+            centeredSlides: true, // Центрируем активный слайд
+            spaceBetween: 20, // Устанавливаем отступы между слайдами
             loop: true, // Зацикливание
             autoplay: { // Автопрокрутка
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: false, // Продолжить автопрокрутку после взаимодействия
             },
         });
