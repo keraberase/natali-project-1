@@ -33,7 +33,7 @@ letter-spacing: -0.04em;}
        top: -10%; /* Центрируем по вертикали */
        left: 50%; /* Центрируем по горизонтали */
        transform: translate(-50%, -100%) rotate(0deg); /* Убедитесь, что верхняя часть видна */
-       transition: transform 0.2s; 
+       transition: transform 0.1s ease-out;
        width: 699px;
        height: 699px;
    }

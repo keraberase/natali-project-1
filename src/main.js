@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutMeHead = document.querySelector('.about-me-head');
 
     let isScrolling = false;
+
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             isScrolling = true;
@@ -53,17 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const basisSection = document.querySelector('.basis');
         if (basisHead && basisSection) {
             const sectionTop = basisSection.offsetTop;
-            const rotation = (scrollY - sectionTop) * 0.1;
+            // Изменяем коэффициент вращения для более естественного эффекта
+            const rotation = (scrollY - sectionTop) * 0.05; // Уменьшаем коэффициент до 0.05
             basisHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
         }
 
         const aboutMeSection = document.querySelector('.image-container-about-me');
         if (aboutMeHead && aboutMeSection) {
             const sectionTop = aboutMeSection.offsetTop;
-            const rotation = (scrollY - sectionTop) * 0.1;
+            const rotation = (scrollY - sectionTop) * 0.05; // Тоже здесь
             aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
         }
     }
+
 
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer) {
