@@ -1,5 +1,10 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-Groupp" viewBox="0 0 23 32">
+<path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7297" d="M22.486 0.979v30.043"></path>
+<path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7297" d="M11.789 0.979v30.043"></path>
+<path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7297" d="M0.865 0.979v30.043"></path>
+</symbol>
 <symbol id="icon-Arrow" viewBox="0 0 51 32">
 <path d="M4.137 27.97c-1.25-1.25-1.25-3.276 0-4.525l19.307-19.307c1.25-1.25 3.276-1.25 4.526 0s1.25 3.276 0 4.525l-19.307 19.307c-1.25 1.25-3.276 1.25-4.525 0z"></path>
 <path d="M47.322 27.97c1.25-1.25 1.25-3.276 0-4.525l-19.307-19.307c-1.25-1.25-3.276-1.25-4.525 0s-1.25 3.276 0 4.525l19.307 19.307c1.25 1.25 3.276 1.25 4.525 0z"></path>

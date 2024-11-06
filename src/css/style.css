@@ -79,36 +79,3 @@ body {
           
         }
       
-/* Мобильные стили */
-@media (max-width: 768px) {
-    .header-navigation {
-        display: none; 
-    }
-
-    .certificate-image {
-        width: 80%; /* Ширина на маленьких экранах */
-        max-width: 300px; /* Максимальная ширина на маленьких экранах */
-    }
-
-    .menu-open-button {
-
-    }
-
-    .mob-menu-list {
-
-    }
-}
-@media (min-width: 768px) {
-.header {
-    background-image: url(../images/Photo-Natali2x.jpg);
-}
-}
-@media (min-width: 1024px) {
-    .menu-open-button {
-        display: none; 
-    }
-
-    .mob-menu-list {
-        display: none; 
-    }
-}
