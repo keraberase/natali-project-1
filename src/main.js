@@ -84,32 +84,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Логика для модального окна
     const modal = document.querySelector('.modal');
-    const modalImg = modal ? modal.querySelector('img') : null;
+const modalImg = modal ? modal.querySelector('img') : null;
 
-    if (modal && modalImg) {
-        document.querySelectorAll('.certificate-image').forEach((image) => {
-            image.addEventListener('click', () => {
-                openModal(image.src);
-            });
+if (modal && modalImg) {
+    // Добавляем событие клика на каждое изображение сертификата
+    document.querySelectorAll('.certificate-image').forEach((image) => {
+        image.addEventListener('click', () => {
+            openModal(image.src); // Передаем URL изображения в функцию открытия модального окна
         });
+    });
 
-        function openModal(imgSrc) {
-            modalImg.src = imgSrc;
-            modal.style.display = 'flex'; // Изменяем стиль на 'flex', чтобы показать модальное окно
+    // Функция для открытия модального окна
+    function openModal(imgSrc) {
+        if (imgSrc) {
+            modalImg.src = imgSrc; // Устанавливаем путь к изображению
+            modal.style.display = 'flex'; // Показываем модальное окно
+        } else {
+            console.warn("Ошибка: Путь к изображению пустой."); // Сообщение об ошибке в консоли
         }
-
-        // Закрытие модального окна при клике на него
-        modal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Закрытие модального окна при нажатии на клавишу Esc
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            }
-        });
     }
+
+    // Закрытие модального окна при клике на него
+    modal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalImg.src = ""; // Очистка src после закрытия модального окна
+    });
+
+    // Закрытие модального окна при нажатии клавиши Esc
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            modalImg.src = ""; // Очистка src при закрытии
+        }
+    });
+}
 
     // Кнопки для перехода на Telegram и Instagram
     document.querySelectorAll('.telegram-btn').forEach(button => {
@@ -140,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    
+
 
     const arrowUp = document.querySelector('.arrow-up');
 
