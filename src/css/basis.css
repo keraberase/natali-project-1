@@ -2,81 +2,126 @@
 .basis{
 
     display: flex;
-    width: 100%; /* Занимает всю ширину */
-    min-width: 365px; /* Минимальная ширина */
-    padding: 44px 0; /* Убедитесь, что только сверху и снизу */
-    flex-direction: column;
+    width: 100%;
+    min-width: 365px;
+    padding: 44px 0;
+    flex-direction: column; /* По умолчанию элементы в колонку */
     justify-content: center;
     align-items: flex-start; /* Выравнивание по левому краю */
     gap: 10px;
     background: var(--brown);
     backdrop-filter: blur(25px);
-    position: relative;
-    overflow: hidden; 
     margin-bottom: 24px;
 }
 .start-your-way-text{
-    align-self: stretch;
-color: var(--white);
-font-family: Montserrat;
-font-style: normal;
-font-size: 20px;
-font-variant: small-caps;
-line-height: 1.1;
-letter-spacing: -0.04em;
+    color: var(--white);
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 20px;
+    font-variant: small-caps;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    max-width: 100%;
+    padding-right: 20px;
 
 }
 .image-container {
     position: relative;
-    height: 350px; /* Убедитесь, что эта высота соответствует видимой половине изображения */
-    overflow: hidden; /* Скрывает содержимое, выходящее за пределы контейнера */
+    height: 350px; 
+    overflow: hidden; 
 }
 
 .basis-head {
  position: absolute; 
-    top: -10%; /* Центрируем по вертикали */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -100%) rotate(0deg); /* Убедитесь, что верхняя часть видна */
+    top: -10%; 
+    left: 50%; 
     transition: transform 0.1s ease-out;
     width: 699px;
     height: 699px;
 }
 
   body.scroll .basis-head {
-    transform: translateX(-50%) rotate(10deg); /* Поворот на 10 градусов */
+    transform: translateX(-50%) rotate(10deg); 
   }
 
-  .Help-you {
-    padding: 0 16px; /* Убедитесь, что добавили паддинги для контейнера */
+  .help-you {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 44px 0;
 }
 
+.help-you-content {
+    display: flex;
+    flex-direction: column; /* Колонка на маленьких экранах */
+    align-items: flex-start;
+}
+.help-you-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-you-icon{
+    display: none;
+}
 .black-line {
     height: 2px; /* Высота полосы */
     background-color: black; /* Цвет полосы */
     margin: 54px 0; /* Отступ сверху и снизу от полосы */
-    width: 100%; /* Ширина полосы на всю ширину контейнера */
+    width: 100%; 
 }
 
-.Help-you-text{
-flex-shrink: 0;
- color: var(--brown);
-font-family: Montserrat;
-font-size: 20px;
-font-style: normal;
-line-height: 1.1;
-letter-spacing: -0.04em;
-font-variant: small-caps;
-flex-shrink: 0;
-}
 
-.Help-you-history-text{
-    flex-shrink: 0;
+.help-you-text, .help-you-history-text {
     color: var(--brown);
-   font-family: Montserrat;
-   font-style: normal;
-   font-size: 20px;
-   font-weight: 400;
-   font-variant: small-caps;
-   line-height: 1.1;
-   letter-spacing: -0.04em;
-   }
+    font-family: Montserrat;
+    font-size: 28px;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    font-variant: small-caps;
+    flex: 1;
+}
+
+
+   @media screen and (min-width: 1024px) {
+    .basis {
+        flex-direction: row;
+        justify-content: space-between; 
+        padding: 43px 0; 
+        align-items: center; 
+    }
+
+    .start-your-way-text {
+        padding-right: 0;
+        width: 482px;
+        height: 351px;
+    }
+
+    .image-container {
+        width: 45%;
+        position: static; 
+        max-width: 430px; 
+        
+
+    }
+
+    .basis-head {
+        width: 555px; 
+        height: 555px;
+    }
+    .help-you{
+        padding: 80px 0;
+        margin-bottom: 100px;
+    }
+    .help-you-content {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .help-you-icon {
+        display: block;
+    }
+}

@@ -41,11 +41,10 @@ img {
 }
 
 .container {
-    max-width: none; /* Убираем максимальную ширину */
-    width: 100%; /* Устанавливаем ширину 100% */
-    padding-left: 16px; /* Убедитесь, что вы оставили паддинг */
-    padding-right: 16px; /* Убедитесь, что вы оставили паддинг */
-    margin: 0; /* Убираем отступы */
+    max-width: none; 
+    width: 100%; 
+    padding: 0 16px;
+    margin: 0; 
 }
 
 body {
@@ -79,3 +78,8 @@ body {
           
         }
       
+        @media screen and (min-width: 1024px) {
+            .container{
+               padding: 0 50px;
+            }
+        }

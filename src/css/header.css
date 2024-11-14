@@ -56,8 +56,20 @@
 }
 
 .header-menu-link {
-    text-decoration: none;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-transform: capitalize;
     color: var(--medium-brown);
+}
+
+.header-menu-link:hover,
+.header-menu-link:active{
+    color: var(--orange);
+    transition: 0.5s;
 }
 
 /* Основной контент */
@@ -69,11 +81,11 @@
 }
 
 /* Мобильные стили */
-@media (max-width: 768px) {
+@media screen and (max-width: 1023px) {
+
     .header-navigation {
         display: none;
     }
-
     .certificate-image {
         width: 80%;
         max-width: 300px;
@@ -99,61 +111,66 @@ screen and (min-resolution: 2dppx) and (min-width: 768px) {
     }
 }
 
+
 @media screen and (min-width: 1024px) {
     /* Фоновое изображение для десктопной версии */
     .header {
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+        background-size: cover;
         background-image: url(../images/Photo-Natali-max.jpg);
-        min-width: 1024px;
         min-height: 1085px;
-        justify-content: space-between;
-        padding: 20px;
     }
 
     /* Десктопная навигация */
     .header-navigation {
+        margin-top: 40px;
         display: flex;
         justify-content: center;
-        flex-wrap: nowrap;
-        text-align: center;
-        align-items: center;
-        white-space: nowrap;
-        padding: 20px 0 22px 0;
-        margin-left: 20%;
-        border-radius: 0px 20px;
-        background: rgba(255, 216, 195, 0.70);
+        padding: 20px 49px;
+        background: rgba(255, 216, 195, 0.7);
         backdrop-filter: blur(7.5px);
+        width: 100%;
+
     }
 
     .header-menu-list {
-        gap: 43px;
-        padding: 0;
-        margin: 0;
+        gap: 51px;
     }
 
-    .header-menu-link {
-        font-weight: 500;
+    .header-container {
+        display: flex;
+        flex-direction: column; 
+        height: 100%; 
     }
 
     /* Основной контент внизу */
     .content {
-        padding: 0 50px 30px;
-        text-align: left;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;  
+        margin-top: auto; 
+        gap: 12px;
+        padding-bottom: 30px;
+        
     }
 
     .header-title {
-        font-size: 48px;
-        font-weight: 700;
+        max-width: 525px;
+        font-size: 64px;
     }
 
     .header-text {
-        font-size: 18px;
-        line-height: 1.2;
+        font-size: 32px;
     }
 
     /* Скрываем мобильное меню на десктопе */
     .menu-open-button, .mob-menu-list {
         display: none;
     }
+
 }
 
 /* Retina и экраны высокого разрешения */

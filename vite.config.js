@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
-import copy from 'rollup-plugin-copy';  // Подключаем плагин для копирования
+import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig(({ command }) => {
   return {
@@ -12,28 +12,37 @@ export default defineConfig(({ command }) => {
     root: 'src',
     build: {
       sourcemap: true,
-
       rollupOptions: {
-        input: glob.sync('./src/*.html'),
+        input: glob.sync('./src/**/*.html'),
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
               return 'vendor';
             }
           },
-          entryFileNames: 'commonHelpers.js',
+          entryFileNames: chunkInfo => {
+            if (chunkInfo.name === 'commonHelpers') {
+              return 'commonHelpers.js';
+            }
+            return '[name].js';
+          },
+          assetFileNames: assetInfo => {
+            if (assetInfo.name && assetInfo.name.endsWith('.html')) {
+              return '[name].[ext]';
+            }
+            return 'assets/[name]-[hash][extname]'; // Убедитесь, что изображения корректно копируются сюда
+          },
         },
       },
       outDir: '../dist',
+      emptyOutDir: true,
+      assetsDir: 'assets', // Убедитесь, что изображения будут скопированы в эту папку
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
-      copy({
-        targets: [
-          { src: 'src/images/*', dest: 'dist/assets' },  // Копируем изображения в папку dist/assets
-          // Добавьте дополнительные файлы или папки, которые необходимо копировать
-        ],
+      FullReload(['./src/**/*.html']),
+      SortCss({
+        sort: 'mobile-first',
       }),
     ],
   };

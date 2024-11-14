@@ -14,19 +14,16 @@
 
 <body> 
     <header class="header">
+        <nav class="header-navigation">
+            <ul class="header-menu-list">
+                <li class="header-menu-item"><a class="header-menu-link" href="#Setting">Сеттинг</a></li>
+                <li class="header-menu-item"><a class="header-menu-link" href="#Consultation">Консультація</a></li>
+                <li class="header-menu-item"><a class="header-menu-link" href="#Client">Основні принципи</a></li>
+                <li class="header-menu-item"><a class="header-menu-link" href="#Confidentiality">Конфіденційність</a></li>
+                <li class="header-menu-item"><a class="header-menu-link" href="#Social">Соціальні мережі</a></li>
+            </ul>
+        </nav>
         <div class="container header-container">
-            <nav class="header-navigation">
-                <svg class="menu-header-icon" height="62" width="62" fill="#534139">
-                    <use href="./images/symbol-defs.svg#icon-Groupp"></use>
-                </svg>
-                <ul class="header-menu-list">
-                    <li class="header-menu-item"><a class="header-menu-link" href="#Setting">Сеттинг</a></li>
-                    <li class="header-menu-item"><a class="header-menu-link" href="#Consultation">Консультація</a></li>
-                    <li class="header-menu-item"><a class="header-menu-link" href="#Client">Основні принципи</a></li>
-                    <li class="header-menu-item"><a class="header-menu-link" href="#Confidentiality">Конфіденційність</a></li>
-                    <li class="header-menu-item"><a class="header-menu-link" href="#Social">Соціальні мережі</a></li>
-                </ul>
-            </nav>
             <div class="menu-container">
                 <button type="button" class="menu-open-button">
                     <svg class="menu-button-icon" height="62" width="62" fill="#534139">
@@ -59,21 +56,60 @@
 Ваш шлях не буде схожий на інші.
 Бо Ви є унікальним(ою).
                 </p>
+
                 <div class="image-container">
-                    <img class="basis-head" src="./images/Head.png" alt="Head">
+                    <picture>
+                        <!-- При ширине экрана от 768px, используем изображения с более высоким разрешением -->
+                        <source media="(min-width:768px)" srcset="
+                            /images/Head.png 1x, 
+                            /images/Head2x.png 2x">
+                        <img class="basis-head" src="/images/Head.png" alt="Head">
+                    </picture>
                 </div>
             </div>
         </section>
 
         <section class="help-you">
             <div class="container">
-                <p class="help-you-text">
-                    Я допоможу Вам віднайти та усвідомити несвідомі процеси, установки, сценарії, які могли зародитися ще в глибокому дитинстві, але впливають на свідому частину Вашого життя зараз. Допоможу Вам зрозуміти себе, свої емоції та почуття, усвідомити свої бажання, дослідити причини тривог та страхів та усунути їх, вирішити внутрішні конфлікти, повернути Вашу життєву енергію.
-                </p>
-                <div class="black-line"></div>
-                <p class="help-you-history-text">
-                    В психологію я прийшла усвідомлюючи свій власний травматичний досвід, з бажанням пропрацювати та зцілити. Доторкнувшись до розуміння механізмів роботи психіки, захотілося поринути ще глибше в ці процеси, щоб стати фахівцем в цій спеціальності та ділитися своїми знаннями і вміннями. Психологія - це моя друга освіта, в яку я прийшла з великою любов’ю та безмежною цікавістю.
-                </p>
+                <!-- Первый блок с иконкой и текстом -->
+                <div class="help-you-content">
+                    <div class="help-you-icon-wrapper">
+                        <svg class="help-you-icon" height="268" width="268">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color: #4C4645; stop-opacity: 1" />
+                                    <stop offset="100%" style="stop-color: #B9917F; stop-opacity: 1" />
+                                </linearGradient>
+                            </defs>
+                            <use href="./images/symbol-defs.svg#icon-Brain" fill="url(#gradient)"></use>
+                        </svg>
+                    </div>
+                    <div class="text-and-line">
+                        <p class="help-you-text">
+                            Я допоможу Вам віднайти та усвідомити несвідомі процеси, установки, сценарії, які могли зародитися ще в глибокому дитинстві, але впливають на свідому частину Вашого життя зараз. Допоможу Вам зрозуміти себе, свої емоції та почуття, усвідомити свої бажання, дослідити причини тривог та страхів та усунути їх, вирішити внутрішні конфлікти, повернути Вашу життєву енергію.
+                        </p>
+                        <!-- Черная линия только под этим блоком текста -->
+                        <div class="black-line"></div>
+                    </div>
+                </div>
+        
+                <!-- Второй блок с иконкой и текстом -->
+                <div class="help-you-content">
+                    <div class="help-you-icon-wrapper">
+                        <svg class="help-you-icon" height="268" width="268">
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color: #4C4645; stop-opacity: 1" />
+                                    <stop offset="100%" style="stop-color: #B9917F; stop-opacity: 1" />
+                                </linearGradient>
+                            </defs>
+                            <use href="./images/symbol-defs.svg#icon-Brain" fill="url(#gradient)"></use>
+                        </svg>
+                    </div>
+                    <p class="help-you-history-text">
+                        В психологію я прийшла усвідомлюючи свій власний травматичний досвід, з бажанням пропрацювати та зцілити. Доторкнувшись до розуміння механізмів роботи психіки, захотілося поринути ще глибше в ці процеси, щоб стати фахівцем в цій спеціальності та ділитися своїми знаннями і вміннями. Психологія - це моя друга освіта, в яку я прийшла з великою любов’ю та безмежним інтересом.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -82,32 +118,32 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <picture class="modal-pict">
-                                <source media="(min-width: 768px)" srcset="images/Certificate1-2x.jpg 2x">
-                                <img src="images/Certificate1.jpg" alt="Certificate 1" class="certificate-image" />
+                                <source media="(min-width: 768px)" srcset="/images/Certificate1-2x.jpg 2x">
+                                <img src="/images/Certificate1.jpg" alt="Certificate 1" class="certificate-image" />
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture class="modal-pict">
-                                <source media="(min-width: 768px)" srcset="images/Certificate2-2x.jpg 2x" />
-                                <img src="images/Certificate2.jpg" alt="Certificate 2" class="certificate-image" />
+                                <source media="(min-width: 768px)" srcset="/images/Certificate2-2x.jpg 2x" />
+                                <img src="/images/Certificate2.jpg" alt="Certificate 2" class="certificate-image" />
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture class="modal-pict">
-                                <source media="(min-width: 768px)" srcset="images/Certificate3-2x.jpg 2x" />
-                                <img src="images/Certificate3.jpg" alt="Certificate 3" class="certificate-image" />
+                                <source media="(min-width: 768px)" srcset="/images/Certificate3-2x.jpg 2x" />
+                                <img src="/images/Certificate3.jpg" alt="Certificate 3" class="certificate-image" />
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture class="modal-pict">
-                                <source media="(min-width: 768px)" srcset="images/Certificate4-2x.jpg 2x" />
-                                <img src="images/Certificate4.jpg" alt="Certificate 4" class="certificate-image" />
+                                <source media="(min-width: 768px)" srcset="/images/Certificate4-2x.jpg 2x" />
+                                <img src="/images/Certificate4.jpg" alt="Certificate 4" class="certificate-image" />
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture class="modal-pict">
-                                <source media="(min-width: 768px)" srcset="images/Certificate5-2x.jpg 2x" />
-                                <img src="images/Certificate5.jpg" alt="Certificate 5" class="certificate-image" />
+                                <source media="(min-width: 768px)" srcset="/images/Certificate5-2x.jpg 2x" />
+                                <img src="/images/Certificate5.jpg" alt="Certificate 5" class="certificate-image" />
                             </picture>
                         </div>
                     </div>

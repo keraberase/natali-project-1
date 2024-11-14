@@ -53,7 +53,9 @@
 }
 
 /* Остальные стили остаются прежними */
-
+.certificate-text{
+    text-align: left;
+}
 
 .modal-button {
     position: absolute;
@@ -94,10 +96,36 @@
     font-style: normal;
     line-height: 1.1;
     letter-spacing: -0.04em;
+
 }
 
 /* Анимация автоматической прокрутки */
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
+}
+
+
+@media (min-width: 768px) {
+    .swiper-container {
+        padding: 0 40px; /* Дополнительные отступы для экранов больше 768px */
+    }
+
+    .swiper-slide {
+        width: 250px; /* Увеличиваем ширину слайдов на больших экранах */
+    }
+}
+
+@media (min-width: 1024px) {
+    .swiper-container {
+        padding: 0 60px; /* Увеличиваем паддинги для экранов больше 1024px */
+    }
+
+    .swiper-slide {
+        width: 758px; /* Устанавливаем ширину основного сертификата */
+        opacity: 1; /* Полная видимость слайда */
+    }
+.swiper-wrapper {
+        gap: 56px; /* Отступы между слайдами на экранах больше 1024px */
+    }
 }
