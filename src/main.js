@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
-
+    
     let isScrolling = false;
-
+    
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             isScrolling = true;
@@ -48,39 +48,78 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
-
+    
     function updateHeadRotation() {
         const scrollY = window.scrollY;
         const basisSection = document.querySelector('.basis');
+        const aboutMeSection = document.querySelector('.image-container-about-me');
+        const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    
+        // Обновление для basis-head
         if (basisHead && basisSection) {
             const sectionTop = basisSection.offsetTop;
-            // Изменяем коэффициент вращения для более естественного эффекта
-            const rotation = (scrollY - sectionTop) * 0.05; // Уменьшаем коэффициент до 0.05
-            basisHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
+            const rotation = (scrollY - sectionTop) * 0.05;
+    
+            if (mediaQuery.matches) {
+                basisHead.style.transform = `rotate(${rotation}deg)`;
+                basisHead.style.margin = "0 auto";
+                basisHead.style.left = "";
+                basisHead.style.position = "";
+            } else {
+                basisHead.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+                basisHead.style.left = "50%";
+                basisHead.style.position = "relative";
+                basisHead.style.margin = "";
+            }
         }
-
-        const aboutMeSection = document.querySelector('.image-container-about-me');
+    
+        // Обновление для about-me-head
         if (aboutMeHead && aboutMeSection) {
             const sectionTop = aboutMeSection.offsetTop;
-            const rotation = (scrollY - sectionTop) * 0.05; // Тоже здесь
-            aboutMeHead.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
+            const rotation = (scrollY - sectionTop) * 0.05;
+    
+            if (mediaQuery.matches) {
+                aboutMeHead.style.transform = `rotate(${rotation}deg)`;
+                aboutMeHead.style.margin = "0 auto";
+                aboutMeHead.style.left = "";
+                aboutMeHead.style.position = "";
+            } else {
+                aboutMeHead.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+                aboutMeHead.style.left = "50%";
+                aboutMeHead.style.position = "relative";
+                aboutMeHead.style.margin = "";
+            }
         }
     }
-
+    
 
     const swiperContainer = document.querySelector('.swiper-container');
     if (swiperContainer) {
         new Swiper(swiperContainer, {
-            slidesPerView: 1.5, // Показываем один полный слайд и часть двух соседних
-            centeredSlides: true, // Центрируем активный слайд
-            spaceBetween: 20, // Устанавливаем отступы между слайдами
-            loop: true, // Зацикливание
-            autoplay: { // Автопрокрутка
-                delay: 5000,
-                disableOnInteraction: false, // Продолжить автопрокрутку после взаимодействия
+            effect: 'coverflow', // Эффект Coverflow для кругового вращения
+            grabCursor: true, // Указатель мыши, как курсор для захвата
+            centeredSlides: true, // Центральный слайд всегда в центре
+            slidesPerView: 'auto', // Автоматическая ширина слайдов
+            loop: true, // Зацикливание слайдов
+            autoplay: {
+                delay: 3000, // Автопрокрутка слайдов
+                disableOnInteraction: false, // Не отключать автопрокрутку при взаимодействии
             },
+            coverflowEffect: {
+                rotate: 50, // Угол поворота слайдов
+                stretch: 0, // Протяженность слайдов
+                depth: 100, // Глубина эффекта
+                modifier: 1, // Модификатор силы эффекта
+                slideShadows: true, // Включение теней
+            },
+            pagination: {
+                el: '.swiper-pagination', // Добавление пагинации
+                clickable: true, // Возможность клика на пагинацию
+            },
+            direction: 'horizontal', // Горизонтальная прокрутка
         });
     }
+
 
     // Логика для модального окна
     const modal = document.querySelector('.modal');
@@ -94,13 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function openModal(imgSrc) {
-        if (modalImg) {
-            modalImg.src = imgSrc;
-            modal.style.display = 'flex'; // Показ модального окна
-        } else {
-            console.warn("Модальное окно или изображение не найдено.");
+            if (modalImg) {
+                modalImg.src = imgSrc;
+                modal.style.display = 'flex';  // Показ модального окна
+            } else {
+                console.warn("Модальное окно или изображение не найдено.");
+            }
         }
-    }
+
         // Закрытие модального окна при клике на него
         modal.addEventListener('click', () => {
             modal.style.display = 'none';
