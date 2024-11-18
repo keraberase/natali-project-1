@@ -1,5 +1,4 @@
 .help-you {
-    padding: 0 16px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -11,6 +10,7 @@
     flex-direction: column;
     align-items: center;  
     text-align: left; 
+    align-self: stretch;
 }
 
 .help-you-icon-wrapper {
@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: stretch;
 }
 
 .help-you-text, .help-you-history-text {
@@ -38,7 +39,7 @@
     line-height: 1.1;
     letter-spacing: -0.04em;
     font-variant: small-caps;
-    min-width: 595px;
+    min-width: 333px;
     text-align: left; /* Выравнивание текста по левому краю */
 }
 
@@ -67,6 +68,8 @@
     }
 
     .black-line {
+        margin-top: 41px;
+        margin-bottom: 41px;
         width:100%; /* Черная линия будет меньше по ширине на больших экранах */
     }
     .help-you-icon {
