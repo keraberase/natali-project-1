@@ -10,8 +10,8 @@
     justify-content: center;
     gap: 10px;
 }
-.about-me-text
-{
+
+.about-me-alltext{
     display: flex;
     flex-direction: column;
 }
@@ -67,6 +67,9 @@ letter-spacing: -0.04em;}
         justify-content: center; /* Размещаем элементы с интервалом между ними */
         align-items: center;
         gap: 0;
+    }
+    .about-me-alltext{
+        max-width: 477px;
     }
     .about-me-title {
         font-size: 32px;

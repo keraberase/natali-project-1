@@ -1,34 +1,75 @@
-.Help-you {
-    padding: 0 16px; /* Убедитесь, что добавили паддинги для контейнера */
+.help-you {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 44px 0;
+}
+
+.help-you-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: left; 
+}
+
+.help-you-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px; /* Отступ между иконкой и текстом */
+}
+
+.help-you-icon {
+    display: none;
+}
+
+.text-and-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.help-you-text, .help-you-history-text {
+    color: var(--brown);
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    font-variant: small-caps;
+    min-width: 595px;
+    text-align: left; /* Выравнивание текста по левому краю */
 }
 
 .black-line {
-    height: 2px; /* Высота полосы */
-    background-color: black; /* Цвет полосы */
-    margin: 54px 0; /* Отступ сверху и снизу от полосы */
-    width: 100%; /* Ширина полосы на всю ширину контейнера */
+    height: 2px;
+    background-color: black;
+    width: 100%;
+    margin-top: 54px;
+    margin-bottom: 54px;
 }
 
-.Help-you-text{
-flex-shrink: 0;
- color: var(--brown);
-font-family: Montserrat;
-font-size: 20px;
-font-style: normal;
-line-height: 1.1;
-letter-spacing: -0.04em;
-font-variant: small-caps;
-flex-shrink: 0;
-}
+@media screen and (min-width: 1024px) {
+    .help-you {
+        padding: 80px 0;
+        margin-bottom: 100px;
+    }
 
-.Help-you-history-text{
-    flex-shrink: 0;
-    color: var(--brown);
-   font-family: Montserrat;
-   font-style: normal;
-   font-size: 20px;
-   font-weight: 400;
-   font-variant: small-caps;
-   line-height: 1.1;
-   letter-spacing: -0.04em;
-   }
+    .help-you-content {
+        flex-direction: row;  /* Горизонтальное расположение на больших экранах */
+        justify-content: flex-start;  /* Выравниваем по левому краю */
+        align-items: flex-start; /* Центрируем по вертикали */
+    }
+
+    .help-you-text, .help-you-history-text {
+        font-size: 28px; /* Увеличиваем размер текста на больших экранах */
+    }
+
+    .black-line {
+        width:100%; /* Черная линия будет меньше по ширине на больших экранах */
+    }
+    .help-you-icon {
+        display: block;
+    }
+}

@@ -1,7 +1,6 @@
 .consultation {
     display: flex;
-    padding-top: 44px;
-    padding-bottom: 44px;
+    padding: 44px 0;
     margin-bottom: 24px;
 }
 
@@ -105,4 +104,38 @@ font-weight: 600;
     display: flex; /* Используем Flexbox */
     justify-content: center; /* Центрируем по горизонтали */
     align-items: center; /* Центрируем по вертикали */
+}
+
+@media screen and (min-width: 1024px) {
+    .consultation {
+        padding: 80px 0;
+        margin-bottom: 100px;
+    }
+    .consultation-seting-head,
+.consultation-title{
+    font-size: 64px;
+}
+.consultation-seting-meeting {
+    font-size: 28px;
+}
+.consultation-seting-meeting-text,
+.consultation-list-content {
+    font-size: 28px;
+}
+.telegram-btn {
+    font-size: 28px;
+}
+.consultation-list-content:hover .consultation-icon,
+.consultation-list-content:hover .consultation-span {
+    fill: #FB4723; /* Изменяем цвет иконки на оранжевый */
+    color: #FB4723; /* Изменяем цвет текста на оранжевый */
+}
+
+.consultation-icon {
+    transition: fill 0.3s ease; /* Добавляем плавный переход для иконки */
+}
+
+.consultation-span {
+    transition: color 0.3s ease; /* Плавный переход для цвета текста */
+}
 }

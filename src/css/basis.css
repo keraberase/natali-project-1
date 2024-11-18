@@ -48,48 +48,6 @@
     transform: translateX(-50%) rotate(10deg); 
   }
 
-  .help-you {
-    padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 44px 0;
-}
-
-.help-you-content {
-    display: flex;
-    flex-direction: column; /* Колонка на маленьких экранах */
-    align-items: flex-start;
-}
-.help-you-icon-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.help-you-icon{
-    display: none;
-}
-.black-line {
-    height: 2px; /* Высота полосы */
-    background-color: black; /* Цвет полосы */
-    margin: 54px 0; /* Отступ сверху и снизу от полосы */
-    width: 100%; 
-}
-
-
-.help-you-text, .help-you-history-text {
-    color: var(--brown);
-    font-family: Montserrat;
-    font-size: 28px;
-    font-style: normal;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
-    font-variant: small-caps;
-    flex: 1;
-}
-
-
    @media screen and (min-width: 1024px) {
     .basis {
         max-height: 640px;
@@ -120,17 +78,5 @@
     .basis-head {
         width: 430px;
         height: 430px;
-    }
-    .help-you{
-        padding: 80px 0;
-        margin-bottom: 100px;
-    }
-    .help-you-content {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
-    .help-you-icon {
-        display: block;
     }
 }
