@@ -70,3 +70,10 @@
         font-size: 28px;
     }
 }
+
+@media screen and (min-width: 1440px) {
+    .client-content {
+        max-width: 1318px;
+        margin: 0 auto;
+    }
+}

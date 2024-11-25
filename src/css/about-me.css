@@ -93,3 +93,19 @@ letter-spacing: -0.04em;}
         height: 430px;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .about-me-container{
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+    .about-me-alltext{
+        max-width: 752px;
+
+    }
+
+    .about-me-content{
+        max-width: 752px;
+    }
+
+}

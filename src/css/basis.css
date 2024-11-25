@@ -50,7 +50,6 @@
 
    @media screen and (min-width: 1024px) {
     .basis {
-        max-height: 640px;
         padding: 43px 0;
         gap: 0;
     }
@@ -79,4 +78,15 @@
         width: 430px;
         height: 430px;
     }
+}
+@media screen and (min-width: 1440px) {
+    .basis-container {
+        max-width: 1920px;
+        margin: 0 auto; /* Центрируем контейнер */
+    }
+
+    .start-your-way-text {
+        max-width: none;
+    }
+
 }

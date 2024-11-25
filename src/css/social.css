@@ -85,3 +85,15 @@ border-radius: 0 5px;
         font-size: 64px;
     }
 }
+
+@media screen and (min-width: 1440px) {
+    .social-content {
+        gap: 179px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .social-content {
+        gap: 369px;
+    }
+}

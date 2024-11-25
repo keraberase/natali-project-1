@@ -1,5 +1,8 @@
-import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
+import Swiper, { Autoplay, Pagination } from 'swiper';
+
+// Инициализация модулей Swiper
+Swiper.use([Autoplay, Pagination]);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -91,76 +94,62 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+    // Массив с сертификатами (с поддержкой srcset для ретины)
+    const certificates = [
+      { src: '/images/Certificate1.jpg', src2x: '/images/Certificate1-2x.jpg', alt: 'Certificate 1' },
+      { src: '/images/Certificate2.jpg', src2x: '/images/Certificate2-2x.jpg', alt: 'Certificate 2' },
+      { src: '/images/Certificate3.jpg', src2x: '/images/Certificate3-2x.jpg', alt: 'Certificate 3' },
+      { src: '/images/Certificate4.jpg', src2x: '/images/Certificate4-2x.jpg', alt: 'Certificate 4' },
+      { src: '/images/Certificate5.jpg', src2x: '/images/Certificate5-2x.jpg', alt: 'Certificate 5' },
+      { src: '/images/Certificate6.jpg', src2x: '/images/Certificate6-2x.jpg', alt: 'Certificate 6' },
+      { src: '/images/Certificate7.jpg', src2x: '/images/Certificate7-2x.jpg', alt: 'Certificate 7' },
+      { src: '/images/Certificate8.jpg', src2x: '/images/Certificate8-2x.jpg', alt: 'Certificate 8' },
+      { src: '/images/Certificate9.jpg', src2x: '/images/Certificate9-2x.jpg', alt: 'Certificate 9' }
+    ];
     
+/ // Генерация слайдов
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+certificates.forEach((slide) => {
+    const slideElement = document.createElement('div');
+    slideElement.className = 'swiper-slide';
 
-    const swiperContainer = document.querySelector('.swiper-container');
-    if (swiperContainer) {
-        new Swiper(swiperContainer, {
-            effect: 'coverflow', // Эффект Coverflow для кругового вращения
-            grabCursor: true, // Указатель мыши, как курсор для захвата
-            centeredSlides: true, // Центральный слайд всегда в центре
-            slidesPerView: 'auto', // Автоматическая ширина слайдов
-            loop: true, // Зацикливание слайдов
-            autoplay: {
-                delay: 3000, // Автопрокрутка слайдов
-                disableOnInteraction: false, // Не отключать автопрокрутку при взаимодействии
-            },
-            coverflowEffect: {
-                rotate: 50, // Угол поворота слайдов
-                stretch: 0, // Протяженность слайдов
-                depth: 100, // Глубина эффекта
-                modifier: 1, // Модификатор силы эффекта
-                slideShadows: true, // Включение теней
-            },
-            pagination: {
-                el: '.swiper-pagination', // Добавление пагинации
-                clickable: true, // Возможность клика на пагинацию
-            },
-            direction: 'horizontal', // Горизонтальная прокрутка
-        });
+    const img = document.createElement('img');
+    img.src = slide.src;
+    img.alt = slide.alt;
+
+    slideElement.appendChild(img);
+    swiperWrapper.appendChild(slideElement);
+});
+
+// Инициализация Swiper
+const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 30,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+});
+
+// Модальное окно
+const modal = document.querySelector('.modal');
+const modalImg = modal.querySelector('img');
+document.addEventListener('click', (event) => {
+    if (event.target.tagName === 'IMG' && event.target.closest('.swiper-slide')) {
+        modalImg.src = event.target.src;
+        modal.style.display = 'flex';
     }
+});
 
-
-    // Логика для модального окна
-    const modal = document.querySelector('.modal');
-    const modalImg = modal ? modal.querySelector('img') : null;
-
-    if (modal && modalImg) {
-        document.querySelectorAll('.certificate-image').forEach((image) => {
-            image.addEventListener('click', () => {
-                openModal(image.src);
-            });
-        });
-
-        function openModal(imgSrc) {
-            if (modalImg) {
-                modalImg.src = imgSrc;
-                modal.style.display = 'flex';  // Показ модального окна
-            } else {
-                console.warn("Модальное окно или изображение не найдено.");
-            }
-        }
-
-        // Закрытие модального окна при клике на него
-        modal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Закрытие модального окна при нажатии на клавишу Esc
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            }
-        });
-    }
-
-    // Кнопки для перехода на Telegram и Instagram
-    document.querySelectorAll('.telegram-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            window.open('https://t.me/natalyabotyanovskaya', '_blank');
-        });
-    });
-
+modal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
 
     document.getElementById("instagramLink").addEventListener("click", function(event) {
         event.preventDefault(); // Предотвращаем переход по умолчанию

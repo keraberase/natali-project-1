@@ -6,6 +6,14 @@
     margin-bottom: 24px;
 }
 
+.work-with-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 1064px; /* Максимальная ширина блока */
+    margin: 0 auto; /* Центрируем блок по горизонтали */
+}
+
+
 .work-with-head{
     color: var(--white);
 font-family: "Cormorant Infant";
@@ -109,3 +117,12 @@ align-self: stretch;
             max-width: 347px;
         }
       }
+      @media screen and (min-width: 1440px) {
+
+
+        .work-with-content{
+            max-width: 532px; /* Ограничиваем максимальную ширину карточки */
+
+        }
+    }
+    
