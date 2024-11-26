@@ -6,6 +6,7 @@ import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig({
   root: 'src',
+  publicDir: 'src/assets', 
   build: {
     sourcemap: true,
     rollupOptions: {
