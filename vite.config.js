@@ -18,9 +18,9 @@ export default defineConfig(({ command }) => {
           manualChunks(id) {
             if (id.includes('node_modules')) {
               if (id.includes('swiper')) {
-                return 'swiper';  // Отдельный чанк для swiper
+                return 'swiper';  
               }
-              return 'vendor'; // Остальные библиотеки в чанк vendor
+              return 'vendor';
             }
           },
           entryFileNames: chunkInfo => {
