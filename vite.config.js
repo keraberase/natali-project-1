@@ -17,7 +17,10 @@ export default defineConfig(({ command }) => {
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              return 'vendor';
+              if (id.includes('swiper')) {
+                return 'swiper';  // Отдельный чанк для swiper
+              }
+              return 'vendor'; // Остальные библиотеки в чанк vendor
             }
           },
           entryFileNames: chunkInfo => {
@@ -30,13 +33,13 @@ export default defineConfig(({ command }) => {
             if (assetInfo.name && assetInfo.name.endsWith('.html')) {
               return '[name].[ext]';
             }
-            return 'assets/[name]-[hash][extname]'; // Убедитесь, что изображения корректно копируются сюда
+            return 'assets/[name]-[hash][extname]';  // Копирование изображений в assets
           },
         },
       },
       outDir: '../dist',
       emptyOutDir: true,
-      assetsDir: 'assets', // Убедитесь, что изображения будут скопированы в эту папку
+      assetsDir: 'assets', // Папка для изображений
     },
     plugins: [
       injectHTML(),

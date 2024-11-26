@@ -1,7 +1,12 @@
-import 'swiper/swiper-bundle.css';
-import Swiper, { Autoplay, Pagination } from 'swiper';
+// Импорты Swiper и модулей
+import Swiper from 'swiper';
+import { Autoplay, Pagination } from 'swiper/modules';
 
-// Инициализация модулей Swiper
+// CSS стили Swiper
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// Регистрация модулей Swiper
 Swiper.use([Autoplay, Pagination]);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: '/images/Certificate9.jpg', src2x: '/images/Certificate9-2x.jpg', alt: 'Certificate 9' }
     ];
     
-/ // Генерация слайдов
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 certificates.forEach((slide) => {
     const slideElement = document.createElement('div');
@@ -121,7 +125,6 @@ certificates.forEach((slide) => {
     swiperWrapper.appendChild(slideElement);
 });
 
-// Инициализация Swiper
 const swiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
     centeredSlides: true,
