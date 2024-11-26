@@ -13,13 +13,10 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: glob.sync('./src/**/*.html'),
+        input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
-              if (id.includes('swiper')) {
-                return 'swiper';  
-              }
               return 'vendor';
             }
           },
@@ -33,17 +30,16 @@ export default defineConfig(({ command }) => {
             if (assetInfo.name && assetInfo.name.endsWith('.html')) {
               return '[name].[ext]';
             }
-            return 'assets/[name]-[hash][extname]';  // Копирование изображений в assets
+            return 'assets/[name]-[hash][extname]';
           },
         },
       },
       outDir: '../dist',
       emptyOutDir: true,
-      assetsDir: 'assets', // Папка для изображений
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/*.html']),
+      FullReload(['./src/**/**.html']),
       SortCss({
         sort: 'mobile-first',
       }),
