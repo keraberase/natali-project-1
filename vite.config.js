@@ -5,7 +5,6 @@ import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 
 export default defineConfig({
-  base: '/natali-project-1/',  // Указываем базовый путь подкаталога
   root: 'src',
   build: {
     sourcemap: true,
