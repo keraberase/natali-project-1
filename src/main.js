@@ -154,6 +154,14 @@ modal.addEventListener('click', () => {
     modal.style.display = 'none';
 });
 
+
+ // Кнопки для перехода на Telegram и Instagram
+ document.querySelectorAll('.telegram-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        window.open('https://t.me/natalyabotyanovskaya', '_blank');
+    });
+});
+
     document.getElementById("instagramLink").addEventListener("click", function(event) {
         event.preventDefault(); // Предотвращаем переход по умолчанию
     
