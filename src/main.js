@@ -158,15 +158,15 @@ modal.addEventListener('click', () => {
  // Кнопки для перехода на Telegram и Instagram
  document.querySelectorAll('.telegram-btn').forEach(button => {
     button.addEventListener('click', function() {
-        window.open('https://t.me/natalyabotyanovskaya', '_blank');
+        window.open('https://t.me/nataliia_botianovska_psy', '_blank');
     });
 });
 
     document.getElementById("instagramLink").addEventListener("click", function(event) {
         event.preventDefault(); // Предотвращаем переход по умолчанию
     
-        const appLink = "instagram://user?username=natalya_botyanovska_psy";
-        const webLink = "https://www.instagram.com/natalya_botyanovska_psy/";
+        const appLink = "instagram://user?username=nataliia_botianovska_psy";
+        const webLink = "https://www.instagram.com/nataliia_botianovska_psy/";
         const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
     
         if (isMobile) {
