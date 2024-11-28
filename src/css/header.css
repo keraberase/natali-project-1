@@ -77,7 +77,6 @@
     max-width: 100%;
     padding: 0 0 37px 0;
     color: var(--white);
-    margin: 0;
 }
 
 /* Мобильные стили */
@@ -151,7 +150,6 @@ screen and (min-resolution: 2dppx) and (min-width: 768px) {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;  
-        margin-top: auto; 
         gap: 12px;
         padding-bottom: 30px;
         

@@ -71,6 +71,9 @@
         padding: 80px 0;
         margin-bottom: 100px;
     }
+    .confidentiality-title {
+        font-size: 64px;
+    }
     .confidentiality-card {
         min-height: 234px;
         padding: 66px 76px;

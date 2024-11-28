@@ -49,8 +49,8 @@
 }
 
 .consultation-list {
-    list-style: none; /* Убираем стандартные маркеры */
-    padding: 0; /* Убираем отступы */
+    list-style: none; 
+    padding: 0;
     display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -142,6 +142,5 @@ font-weight: 600;
 @media screen and (min-width: 1440px) {
     .consultation-content {
         max-width: 1318px;
-        margin: 0 auto;
     }
 }

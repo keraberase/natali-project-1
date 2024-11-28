@@ -64,7 +64,8 @@
     }
 
     .help-you-text, .help-you-history-text {
-        font-size: 28px; /* Увеличиваем размер текста на больших экранах */
+        font-size: 28px;
+        line-height: 1.3;
     }
 
     .black-line {
@@ -78,14 +79,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .help-you {
-        max-width: 100%; /* Убедитесь, что ширина контейнера не превышает 100% */
-    }
-    
-    .help-you-content {
-        max-width: 100%; /* Убедитесь, что содержимое также не выходит за пределы */
-        justify-content: center;
-    }
 
     .help-you-text, .help-you-history-text {
         max-width: 890px; /* Ограничьте максимальную ширину текста */

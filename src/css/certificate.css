@@ -191,16 +191,11 @@
     }
 }
 @media (min-width: 1440px) {
-    .black-line-certificate{
-        margin: 20px auto;
-    }
     .certificate-text{
         max-width: 1319px;
-        margin: 0 auto;  /* Центрирование самого контейнера по горизонтали */
     }
     .information-text {
     max-width: 1319px;
-    margin: 0 auto;
     }
     .information {
         margin-bottom: 80px;
