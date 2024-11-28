@@ -4,13 +4,13 @@
     padding-top: 44px;
     padding-bottom: 44px;
     margin-bottom: 24px;
+    flex-wrap: wrap; 
 }
 
 .work-with-block {
     display: flex;
     flex-direction: column;
-    max-width: 1064px; /* Максимальная ширина блока */
-    margin: 0 auto; /* Центрируем блок по горизонтали */
+    max-width: 1318px; 
 }
 
 
@@ -119,7 +119,7 @@ align-self: stretch;
       @media screen and (min-width: 1440px) {
 
         .work-with-content{
-            max-width: 562px; /* Ограничиваем максимальную ширину карточки */
+            max-width: 620px; /* Ограничиваем максимальную ширину карточки */
 
         }
     }
