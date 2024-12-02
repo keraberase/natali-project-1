@@ -101,13 +101,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Массив с сертификатами
 // Инициализация Swiper
 const swiper = new Swiper('.swiper-container', {
+    effect: "coverflow",
+    grabCursor: true,
+    initialSlide: 2,
+    speed: 600,
+    preventClicks: true,
     slidesPerView: 'auto',
     centeredSlides: true,
     loop: true,
-    spaceBetween: 30,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+    coverflowEffect:{
+        rotate: 0,
+        stretch: 80,
+        depth: 350,
+        modifier: 1,
+        slideShadows: true,
+    },
+    on:{
+        click(event){
+            swiper.slideTo(this.clickedIndex)
+        }
     },
     autoplay: {
         delay: 3000,
