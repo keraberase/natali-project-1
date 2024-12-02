@@ -99,32 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Массив с сертификатами
-const certificates = [
-    { src: '/images/Certificate1.jpg', src2x: '/images/Certificate1-2x.jpg', alt: 'Certificate 1' },
-    { src: '/images/Certificate2.jpg', src2x: '/images/Certificate2-2x.jpg', alt: 'Certificate 2' },
-    { src: '/images/Certificate3.jpg', src2x: '/images/Certificate3-2x.jpg', alt: 'Certificate 3' },
-    { src: '/images/Certificate4.jpg', src2x: '/images/Certificate4-2x.jpg', alt: 'Certificate 4' },
-    { src: '/images/Certificate5.jpg', src2x: '/images/Certificate5-2x.jpg', alt: 'Certificate 5' },
-    { src: '/images/Certificate6.jpg', src2x: '/images/Certificate6-2x.jpg', alt: 'Certificate 6' },
-    { src: '/images/Certificate7.jpg', src2x: '/images/Certificate7-2x.jpg', alt: 'Certificate 7' },
-    { src: '/images/Certificate8.jpg', src2x: '/images/Certificate8-2x.jpg', alt: 'Certificate 8' },
-    { src: '/images/Certificate9.jpg', src2x: '/images/Certificate9-2x.jpg', alt: 'Certificate 9' }
-];
-
-// Создание слайдов
-const swiperWrapper = document.querySelector('.swiper-wrapper');
-certificates.forEach((slide) => {
-    const slideElement = document.createElement('div');
-    slideElement.className = 'swiper-slide';
-
-    const img = document.createElement('img');
-    img.src = slide.src;
-    img.alt = slide.alt;
-
-    slideElement.appendChild(img);
-    swiperWrapper.appendChild(slideElement);
-});
-
 // Инициализация Swiper
 const swiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
@@ -147,15 +121,18 @@ const modalImg = modal.querySelector('img');
 
 document.addEventListener('click', (event) => {
     if (event.target.tagName === 'IMG' && event.target.closest('.swiper-slide')) {
-        modalImg.src = event.target.src;
-        modal.style.display = 'flex';
+        modalImg.src = event.target.src; // Устанавливаем изображение в модальном окне
+        modal.style.display = 'flex'; // Показываем модальное окно
     }
 });
 
-// Закрытие модального окна при клике
-modal.addEventListener('click', () => {
-    modal.style.display = 'none';
+// Закрытие модального окна при клике на фоновую область
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) { // Закрытие только при клике на саму модальную область
+        modal.style.display = 'none';
+    }
 });
+
 
 
 
