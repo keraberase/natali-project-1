@@ -21,16 +21,12 @@
     width: 100%; 
     padding: 10px; 
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
 }
 
 
 .swiper-slide img {
-    width: 100%; /* Растягивает изображение по ширине контейнера */
-    height: auto; /* Сохраняет пропорции изображения */
-    max-height: 202px; /* Ограничивает максимальную высоту */
-    object-fit: fill; /* Делает изображение растянутым по горизонтали */
+    width: 100%; 
+    max-height: 202px; 
 }
 
 
@@ -130,9 +126,6 @@
         padding: 0 40px; 
     }
 
-    .swiper-slide {
-        width: 33.33%;
-    }
 }
 
 @media (min-width: 1024px) {
