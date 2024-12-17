@@ -61,12 +61,12 @@ align-self: stretch;
 
 .consultation-list-content {
     display: flex;
-    align-items: center; /* Вертикальное выравнивание */
+    align-items: center; 
 }
 
 .consultation-icon {
-    flex-shrink: 0; /* Не позволяем иконкам сжиматься */
-    margin-right: 17px; /* Промежуток между иконкой и текстом */
+    flex-shrink: 0;
+    margin-right: 17px; 
 }
 
 .consultation-span{
@@ -89,7 +89,7 @@ font-weight: 600;
     letter-spacing: -0.04em;
     text-transform: uppercase;
     transition: fill 0.5s ease;
-    transition: background-color 0.5s ease, color 0.5s ease; /* Добавлен переход */
+    transition: background-color 0.5s ease, color 0.5s ease; 
 }
 
 
@@ -101,9 +101,9 @@ font-weight: 600;
 }
 
 .consultation-button-container {
-    display: flex; /* Используем Flexbox */
-    justify-content: center; /* Центрируем по горизонтали */
-    align-items: center; /* Центрируем по вертикали */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 @media screen and (min-width: 1024px) {
@@ -127,16 +127,16 @@ font-weight: 600;
 }
 .consultation-list-content:hover .consultation-icon,
 .consultation-list-content:hover .consultation-span {
-    fill: #FB4723; /* Изменяем цвет иконки на оранжевый */
-    color: #FB4723; /* Изменяем цвет текста на оранжевый */
+    fill: #FB4723; 
+    color: #FB4723; 
 }
 
 .consultation-icon {
-    transition: fill 0.3s ease; /* Добавляем плавный переход для иконки */
+    transition: fill 0.3s ease; 
 }
 
 .consultation-span {
-    transition: color 0.3s ease; /* Плавный переход для цвета текста */
+    transition: color 0.3s ease;
 }
 }
 @media screen and (min-width: 1440px) {

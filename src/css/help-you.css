@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 16px; /* Отступ между иконкой и текстом */
+    margin-bottom: 16px; 
 }
 
 .help-you-icon {
@@ -40,7 +40,7 @@
     letter-spacing: -0.04em;
     font-variant: small-caps;
     min-width: 333px;
-    text-align: left; /* Выравнивание текста по левому краю */
+    text-align: left;
 }
 
 .black-line {
@@ -58,9 +58,9 @@
     }
 
     .help-you-content {
-        flex-direction: row;  /* Горизонтальное расположение на больших экранах */
-        justify-content: flex-start;  /* Выравниваем по левому краю */
-        align-items: flex-start; /* Центрируем по вертикали */
+        flex-direction: row;
+        justify-content: flex-start;  
+        align-items: flex-start; 
     }
 
     .help-you-text, .help-you-history-text {
@@ -71,7 +71,7 @@
     .black-line {
         margin-top: 41px;
         margin-bottom: 41px;
-        width:100%; /* Черная линия будет меньше по ширине на больших экранах */
+        width:100%; 
     }
     .help-you-icon {
         display: block;
@@ -81,6 +81,6 @@
 @media screen and (min-width: 1440px) {
 
     .help-you-text, .help-you-history-text {
-        max-width: 890px; /* Ограничьте максимальную ширину текста */
+        max-width: 890px; 
     }
 }

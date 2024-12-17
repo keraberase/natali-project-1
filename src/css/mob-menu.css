@@ -1,38 +1,38 @@
 .menu-open-button {
-    position: absolute; /* Абсолютное позиционирование внутри header */
-    top: 10px; /* Отступ сверху */
-    right: 10px; /* Отступ справа */
-    background: rgba(255, 216, 195, 0.70); /* Фон кнопки совпадает с фоном меню */
-    border: none; /* Убираем границу у кнопки */
-    border-radius: 0px 20px; /* Закругленные углы */
-    z-index: 11; /* Высокий z-index для того, чтобы кнопка была над контентом */
-    cursor: pointer; /* Курсор при наведении */
-    transition: background 0.3s ease; /* Плавный переход для фона */
-    padding: 10px; /* Отступы для кнопки */
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background: rgba(255, 216, 195, 0.70); 
+    border: none; 
+    border-radius: 0px 20px;
+    z-index: 11; 
+    cursor: pointer; 
+    transition: background 0.3s ease; 
+    padding: 10px;
 
 }
 
 .mob-menu-list {
-    display: none; /* Скрываем мобильное меню по умолчанию */
-    flex-direction: column; /* Вертикальное направление */
-    width: 100%; /* Ширина меню на всю ширину экрана */
-    height: 100%; /* Высота меню на всю высоту экрана */
-    background: rgba(255, 216, 195, 0.70); /* Фон для мобильного меню */
-    position: fixed; /* Позиционируем меню относительно кнопки */
-    top: 0; /* Расположим меню сверху */
-    left: 0; /* Привязываем меню к левому краю */
-    padding: 105px 16px 20px 16px; /* Отступы внутри меню */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
-    border-radius: 0px 20px; /* Закругленные углы */
-    z-index: 10; /* Устанавливаем высокий z-index, чтобы меню всегда было сверху */
-    transform: translateY(-100%); /* Скрываем меню по вертикали */
-    transition: transform 0.3s ease; /* Плавный переход для выезжающего меню */
-    overflow-y: auto; /* Позволяем вертикальную прокрутку */
+    display: none;
+    flex-direction: column; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(255, 216, 195, 0.70); 
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    padding: 105px 16px 20px 16px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 20px;
+    z-index: 10; 
+    transform: translateY(-100%);
+    transition: transform 0.3s ease; 
+    overflow-y: auto;
 }
 
 .mob-menu-list.open {
-    display: flex; /* Показываем меню */
-    transform: translateY(0); /* Показать меню */
+    display: flex;
+    transform: translateY(0);
     
 }
 
@@ -53,5 +53,5 @@
 
 .menu-open-button.active {
     position: fixed;
-    background: transparent; /* Убираем фон кнопки, когда она активна */
+    background: transparent; 
 }

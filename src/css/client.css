@@ -28,13 +28,13 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 44px; /* Уменьшите расстояние между элементами списка */
+    gap: 44px; 
 }
 
 .client-list-content {
     display: flex;
     align-items: flex-start;
-    gap: 17px; /* Отступ между иконкой и текстом */
+    gap: 17px; 
     color: var(--white);
     font-size: 20px;
     font-style: normal;
@@ -46,7 +46,7 @@
 
 .client-icon {
     flex-shrink: 0;
-    margin-right: 12px; /* Расстояние между иконкой и текстом */
+    margin-right: 12px; 
 }
 
 .client-button-container {

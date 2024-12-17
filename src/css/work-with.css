@@ -10,7 +10,7 @@
 .work-with-block {
     display: flex;
     flex-direction: column;
-    max-width: 1318px; 
+    max-width: 1318px;
 }
 
 
@@ -37,10 +37,10 @@ align-self: stretch;
     .work-with-content{
         display: flex;
         flex-direction: column;
-        align-items: center; /* Выравниваем элементы слева */
-        width: 100%; /* По умолчанию карточки занимают всю ширину */
-        max-width: 333px; /* Ограничиваем ширину карточки на мобильных */
-        margin: 0 auto; /* Центруем карточки на мобильных */
+        align-items: center; 
+        width: 100%; 
+        max-width: 333px; 
+        margin: 0 auto; 
         gap: 39px;
         padding: 48px 29px 48px 29px;
         border-radius: 0px 20px;
@@ -66,7 +66,7 @@ align-self: stretch;
         justify-content: flex-start;
         gap: 10px;
         padding: 0;
-        margin: 0; /* Убираем лишние внешние отступы */
+        margin: 0; 
         list-style: disc inside;
     }
 
@@ -99,18 +99,18 @@ align-self: stretch;
 
         .work-with-content {
             max-width: 447px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация для поднятия */
+          transition: transform 0.3s ease, box-shadow 0.3s ease; 
         }
       
-        /* При наведении поднимаем блок и изменяем стиль */
+       
         .work-with-content:hover {
-          transform: translateY(-10px); /* Поднимаем блок */
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+          transform: translateY(-10px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
         }
       
-        /* Стили иконки при наведении */
+        
         .work-with-content:hover svg {
-          fill: #FB4723; /* Изменяем цвет иконки на оранжевый */
+          fill: #FB4723; 
         }
         .work-with-list-content li{
             max-width: 347px;
@@ -119,7 +119,7 @@ align-self: stretch;
       @media screen and (min-width: 1440px) {
 
         .work-with-content{
-            max-width: 620px; /* Ограничиваем максимальную ширину карточки */
+            max-width: 620px; 
 
         }
     }

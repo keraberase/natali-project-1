@@ -31,10 +31,10 @@
     height: 350px;
     overflow: hidden;
     display: flex;
-    justify-content: center; /* Центрируем изображение */
-    align-items: flex-start; /* На мобильных выравнивание сверху */
+    justify-content: center; 
+    align-items: flex-start;
     position: relative;
-    width: 100%; /* Гарантируем, что контейнер будет занимать всю ширину */
+    width: 100%;
 }
 
 
@@ -55,8 +55,8 @@
         margin-bottom: 100px;
     }
     .basis-container{
-        flex-direction: row; /* Меняем на row */
-        justify-content: center; /* Размещаем элементы с интервалом между ними */
+        flex-direction: row; 
+        justify-content: center; 
         align-items: center;
         gap: 0;
     }

@@ -1,4 +1,4 @@
-/* Основные стили секции */
+
 .confidentiality{
     display: flex;
     justify-content: center;
@@ -6,7 +6,6 @@
     margin-bottom: 24px;
 }
 
-/* Заголовок */
 .confidentiality-title {
     color: var(--brown);
     font-family: Cormorant Infant;
@@ -18,7 +17,7 @@
     text-transform: capitalize;
 }
 
-/* Контейнер для карточек */
+
 .confidentiality-cards {
     display: flex;
     flex-direction: column;
@@ -26,7 +25,7 @@
     width: 100%;
 }
 
-/* Стили для карточек */
+
 .confidentiality-card {
     width: 100%;
     min-height: 383px;
@@ -43,7 +42,7 @@
     margin-top: 106px;
 }
 
-/* Контейнер для иконки, чтобы расположить её сверху */
+
 .icon-wrapper {
     position: absolute;
     top: 0;
@@ -52,7 +51,7 @@
 }
 
 
-/* Текст внутри карточек */
+
 .confidentiality-card p {
     display: flex;
     flex-direction: column;

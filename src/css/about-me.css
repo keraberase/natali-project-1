@@ -40,10 +40,10 @@ letter-spacing: -0.04em;}
     height: 350px;
     overflow: hidden;
     display: flex;
-    justify-content: center; /* Центрируем изображение */
-    align-items: flex-start; /* На мобильных выравнивание сверху */
+    justify-content: center; 
+    align-items: flex-start; 
     position: relative;
-    width: 100%; /* Гарант/* Скрывает содержимое, выходящее за пределы контейнера */
+    width: 100%; 
 }
 
 .about-me-head {
@@ -63,8 +63,8 @@ letter-spacing: -0.04em;}
         gap: 0;
     }
     .about-me-container{
-        flex-direction: row-reverse; /* Меняем на row */
-        justify-content: center; /* Размещаем элементы с интервалом между ними */
+        flex-direction: row-reverse; 
+        justify-content: center; 
         align-items: center;
         gap: 0;
     }

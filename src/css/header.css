@@ -9,10 +9,10 @@
     justify-content: flex-end;
     align-items: flex-start;
     transition: all 0.3s ease;
-    background-image: url(../images/Photo-Natali-mob.jpg); /* Фоновое изображение для мобильной версии */
+    background-image: url(../images/Photo-Natali-mob.jpg); 
 }
 
-/* Заголовок */
+
 .header-title {
     font-family: Montserrat;
     font-style: normal;
@@ -24,7 +24,7 @@
     letter-spacing: -0.04em;
 }
 
-/* Текст под заголовком */
+
 .header-text {
     color: var(--white);
     font-family: Montserrat;
@@ -35,7 +35,7 @@
     letter-spacing: -0.04em;
 }
 
-/* Навигация */
+
 .header-navigation {
     display: flex;
     justify-content: space-between;
@@ -72,14 +72,14 @@
     transition: 0.5s;
 }
 
-/* Основной контент */
+
 .content {
     max-width: 100%;
     padding: 0 0 37px 0;
     color: var(--white);
 }
 
-/* Мобильные стили */
+
 @media screen and (max-width: 1023px) {
 
     .header-navigation {
@@ -95,10 +95,10 @@
     }
 }
 
-/* Стили для планшета */
+
 @media screen and (min-width: 768px) {
     .header {
-        background-image: url(../images/Photo-Natali-mob.jpg); /* Фоновое изображение для планшета */
+        background-image: url(../images/Photo-Natali-mob.jpg); 
     }
 }
 
@@ -106,13 +106,13 @@
 screen and (min-resolution: 192dpi) and (min-width: 768px),
 screen and (min-resolution: 2dppx) and (min-width: 768px) {
     .header {
-        background-image: url(../images/Photo-Natali-mob2x.jpg); /* Высокое разрешение для планшета */
+        background-image: url(../images/Photo-Natali-mob2x.jpg); 
     }
 }
 
 
 @media screen and (min-width: 1024px) {
-    /* Фоновое изображение для десктопной версии */
+
     .header {
         display: flex;
     flex-direction: column;
@@ -122,7 +122,7 @@ screen and (min-resolution: 2dppx) and (min-width: 768px) {
         min-height: 1085px;
     }
 
-    /* Десктопная навигация */
+
     .header-navigation {
         margin-top: 40px;
         display: flex;
@@ -144,7 +144,7 @@ screen and (min-resolution: 2dppx) and (min-width: 768px) {
         height: 100%; 
     }
 
-    /* Основной контент внизу */
+
     .content {
 
         display: flex;
@@ -164,18 +164,18 @@ screen and (min-resolution: 2dppx) and (min-width: 768px) {
         font-size: 32px;
     }
 
-    /* Скрываем мобильное меню на десктопе */
+
     .menu-open-button, .mob-menu-list {
         display: none;
     }
 
 }
 
-/* Retina и экраны высокого разрешения */
+
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
 screen and (min-resolution: 192dpi) and (min-width: 1024px),
 screen and (min-resolution: 2dppx) and (min-width: 1024px) {
     .header {
-        background-image: url(../images/Photo-Natali-max2x.jpg); /* Высокое разрешение для десктопа */
+        background-image: url(../images/Photo-Natali-max2x.jpg); 
     }
 }
