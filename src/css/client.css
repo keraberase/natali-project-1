@@ -36,11 +36,7 @@
     align-items: flex-start;
     gap: 17px; 
     color: var(--white);
-    font-size: 20px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
     font-variant: small-caps;
 }
 

@@ -27,25 +27,16 @@
 
 .consultation-seting-meeting {
     color: var(--brown);
-    font-family: Montserrat;
-    font-size: 20px;
     font-weight: 600;
     font-style: normal;
     font-variant: small-caps;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
 }
 
 .consultation-seting-meeting-text,
 .consultation-list-content {
     color: var(--brown);
-    font-family: Montserrat;
-    font-size: 20px;
-    font-weight: 400;
     font-style: normal;
     font-variant: small-caps;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
 }
 
 .consultation-list {
@@ -81,12 +72,8 @@ font-weight: 600;
     background-color: var(--brown);
     color: #FFD8C3;
     text-align: center;
-    font-family: Montserrat;
-    font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
     text-transform: uppercase;
     transition: fill 0.5s ease;
     transition: background-color 0.5s ease, color 0.5s ease; 
@@ -136,7 +123,7 @@ font-weight: 600;
 }
 
 .consultation-span {
-    transition: color 0.3s ease;
+    transition: color 0.3s eas
 }
 }
 @media screen and (min-width: 1440px) {

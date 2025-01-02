@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 16px; 
+    margin-bottom: 16px
 }
 
 .help-you-icon {
@@ -33,11 +33,7 @@
 
 .help-you-text, .help-you-history-text {
     color: var(--brown);
-    font-family: Montserrat;
-    font-size: 20px;
     font-style: normal;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
     font-variant: small-caps;
     min-width: 333px;
     text-align: left;
