@@ -1,9 +1,7 @@
-
 import Swiper from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 
 Swiper.use([Autoplay, Pagination]);
 
@@ -12,36 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.querySelector('.mob-menu-list');
     const menuOpenButton = document.querySelector('.menu-open-button');
 
-    menuOpenButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
+    menuOpenButton?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('open');
         menuOpenButton.classList.toggle('active');
     });
 
     // Smooth scroll to sections when clicking menu links
-    const menuLinks = document.querySelectorAll('.mob-menu-link');
+    document.addEventListener('click', event => {
+        const link = event.target.closest('.mob-menu-link');
+        if (!link) return;
+        event.preventDefault();
 
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop,
-                    behavior: 'smooth',
-                });
-            }
-
-            mobileMenu.classList.remove('open');
-            menuOpenButton.classList.remove('active');
-        });
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth',
+            });
+            mobileMenu?.classList.remove('open');
+            menuOpenButton?.classList.remove('active');
+        }
     });
+
     // Rotate head on scroll
     const basisHead = document.querySelector('.basis-head');
     const aboutMeHead = document.querySelector('.about-me-head');
-
     let isScrolling = false;
 
     window.addEventListener('scroll', () => {
@@ -56,46 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateHeadRotation() {
         const scrollY = window.scrollY;
-        const basisSection = document.querySelector('.basis');
-        const aboutMeSection = document.querySelector(
-            '.image-container-about-me'
-        );
         const mediaQuery = window.matchMedia('(min-width: 1024px)');
 
-        if (basisHead && basisSection) {
-            const sectionTop = basisSection.offsetTop;
-            const rotation = (scrollY - sectionTop) * 0.05;
+        function applyRotation(head, section) {
+            if (!head || !section) return;
+            const rotation = (scrollY - section.offsetTop) * 0.05;
 
+            head.style.transform = `rotate(${rotation}deg)`;
             if (mediaQuery.matches) {
-                basisHead.style.transform = `rotate(${rotation}deg)`;
-                basisHead.style.margin = '0 auto';
-                basisHead.style.left = '';
-                basisHead.style.position = '';
+                head.style.margin = '0 auto';
+                head.style.left = '';
+                head.style.position = '';
             } else {
-                basisHead.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
-                basisHead.style.left = '50%';
-                basisHead.style.position = 'relative';
-                basisHead.style.margin = '';
+                head.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+                head.style.left = '50%';
+                head.style.position = 'relative';
             }
         }
 
-        if (aboutMeHead && aboutMeSection) {
-            const sectionTop = aboutMeSection.offsetTop;
-            const rotation = (scrollY - sectionTop) * 0.05;
-
-            if (mediaQuery.matches) {
-                aboutMeHead.style.transform = `rotate(${rotation}deg)`;
-                aboutMeHead.style.margin = '0 auto';
-                aboutMeHead.style.left = '';
-                aboutMeHead.style.position = '';
-            } else {
-                aboutMeHead.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
-                aboutMeHead.style.left = '50%';
-                aboutMeHead.style.position = 'relative';
-                aboutMeHead.style.margin = '';
-            }
-        }
+        applyRotation(basisHead, document.querySelector('.basis'));
+        applyRotation(
+            aboutMeHead,
+            document.querySelector('.image-container-about-me')
+        );
     }
+
     // Initialize Swiper slider
     const swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
@@ -118,92 +98,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 swiper.slideTo(this.clickedIndex);
             },
         },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
+        autoplay: { delay: 3000, disableOnInteraction: false },
     });
-    // Open a modal with a larger image when clicking on Swiper images
+
+    // Modal image viewer
     const modal = document.querySelector('.modal');
-    const modalImg = modal.querySelector('img');
+    const modalImg = modal?.querySelector('img');
 
     document.addEventListener('click', event => {
-        if (
-            event.target.tagName === 'IMG' &&
-            event.target.closest('.swiper-slide')
-        ) {
-            modalImg.src = event.target.src;
-            modal.style.display = 'flex';
-        }
+        const image = event.target.closest('.swiper-slide img');
+        if (!image || !modalImg || !modal) return;
+
+        modalImg.src = image.src;
+        modal.style.display = 'flex';
     });
-    // Close the modal when clicking outside the image
-    modal.addEventListener('click', event => {
+
+    modal?.addEventListener('click', event => {
         if (event.target === modal) {
             modal.style.display = 'none';
         }
     });
 
-    // Open Telegram link in a new tab
-    document.querySelectorAll('.telegram-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            window.open('https://t.me/nataliia_botianovska_psy', '_blank');
-        });
+    // Secure external links
+    function openSecureLink(url) {
+        const allowedDomains = ['t.me', 'instagram.com'];
+        try {
+            const link = new URL(url);
+            if (allowedDomains.includes(link.hostname)) {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            } else {
+                console.error('Blocked potentially unsafe link:', url);
+            }
+        } catch (error) {
+            console.error('Invalid URL:', url);
+        }
+    }
+
+    document.addEventListener('click', event => {
+        const button = event.target.closest('.telegram-btn');
+        if (button) {
+            openSecureLink('https://t.me/nataliia_botianovska_psy');
+        }
     });
 
     // Handle Instagram link for mobile and desktop users
-    document
-        .getElementById('instagramLink')
-        .addEventListener('click', function (event) {
-            event.preventDefault();
-
-            const appLink =
-                'instagram://user?username=nataliia_botianovska_psy';
-            const webLink =
-                'https://www.instagram.com/nataliia_botianovska_psy/';
-            const isMobile = /Mobi|Android|iPhone|iPad/i.test(
-                navigator.userAgent
-            );
-
-            if (isMobile) {
-                window.location.href = appLink; // Try opening in the Instagram app
-
-                setTimeout(() => {
-                    window.open(webLink, '_blank'); // Fallback to browser if app fails
-                }, 1000);
-            } else {
-                window.open(webLink, '_blank'); // Open in browser for desktop users
-            }
-        });
-    
-    // Smooth scroll to top when clicking the arrow button
-    const arrowUp = document.querySelector('.arrow-up');
-
-    arrowUp.addEventListener('click', event => {
+    const instagramButton = document.getElementById('instagramLink');
+    instagramButton?.addEventListener('click', event => {
         event.preventDefault();
 
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+        const appLink = 'instagram://user?username=nataliia_botianovska_psy';
+        const webLink = 'https://www.instagram.com/nataliia_botianovska_psy/';
+        const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+
+        if (isMobile) {
+            window.location.href = appLink;
+            setTimeout(() => {
+                window.open(webLink, '_blank', 'noopener,noreferrer');
+            }, 1000);
+        } else {
+            openSecureLink(webLink);
+        }
     });
-    // Event listener for clicks on any link with a hash
-        document.querySelectorAll('.header-menu-link').forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent the default action of the link
 
-                const targetId = this.getAttribute('href').substring(1); // Get the ID after '#'
-                const targetElement = document.getElementById(targetId); // Find the target element
+    // Smooth scroll to top
+    const arrowUp = document.querySelector('.arrow-up');
+    arrowUp?.addEventListener('click', event => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-                if (targetElement) {
-                    // Scroll smoothly to the target element
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth',
-                    });
+    // Secure history.replaceState
+    document.addEventListener('click', event => {
+        const link = event.target.closest('.header-menu-link');
+        if (!link) return;
+        event.preventDefault();
 
-                    // Remove the hash from the URL using history.replaceState
-                    history.replaceState(null, '', window.location.pathname);
-                }
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth',
             });
-        });
+            if (window.location.pathname === '/') {
+                history.replaceState(null, '', window.location.pathname);
+            }
+        }
+    });
 });
