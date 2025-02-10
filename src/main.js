@@ -142,23 +142,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle Instagram link for mobile and desktop users
-    const instagramButton = document.getElementById('instagramLink');
-    instagramButton?.addEventListener('click', event => {
-        event.preventDefault();
+   const instagramButton = document.getElementById('instagramLink');
+instagramButton?.addEventListener('click', event => {
+    event.preventDefault();
 
-        const appLink = 'instagram://user?username=nataliia_botianovska_psy';
-        const webLink = 'https://www.instagram.com/nataliia_botianovska_psy/';
-        const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const webLink = 'https://www.instagram.com/nataliia_botianovska_psy/';
+    const appLink = 'instagram://user?username=nataliia_botianovska_psy';
+    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
-        if (isMobile) {
-            window.location.href = appLink;
-            setTimeout(() => {
-                window.open(webLink, '_blank', 'noopener,noreferrer');
-            }, 1000);
-        } else {
-            openSecureLink(webLink);
-        }
-    });
+    if (isMobile) {
+        window.location.href = appLink;
+        setTimeout(() => {
+            window.open(webLink, '_blank', 'noopener,noreferrer');
+        }, 1000);
+    } else {
+        window.open(webLink, '_blank', 'noopener,noreferrer'); // На ПК сразу открываем веб-версию
+    }
+});
+
 
     // Smooth scroll to top
     const arrowUp = document.querySelector('.arrow-up');
