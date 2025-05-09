@@ -146,8 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
 instagramButton?.addEventListener('click', event => {
     event.preventDefault();
 
-    const webLink = 'https://www.instagram.com/nataliia_botianovska_psy/';
-    const appLink = 'instagram://user?username=nataliia_botianovska_psy';
+    const webLink = 'https://www.instagram.com/natalia_botianovska_psy/';
+    const appLink = 'instagram://user?username=natalia_botianovska_psy';
     const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
     if (isMobile) {
