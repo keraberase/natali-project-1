@@ -42,6 +42,25 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
       assetsDir: 'assets', // Папка для изображений
     },
+    
+    // === ДОБАВЛЕНО: НАСТРОЙКИ БЕЗОПАСНОСТИ ===
+    server: {
+      headers: {
+        'X-Content-Type-Options': 'nosniff',
+        'X-Frame-Options': 'DENY',
+        'X-XSS-Protection': '1; mode=block'
+      }
+    },
+    
+    preview: {
+      headers: {
+        'X-Content-Type-Options': 'nosniff', 
+        'X-Frame-Options': 'DENY',
+        'X-XSS-Protection': '1; mode=block'
+      }
+    },
+    // === КОНЕЦ ДОБАВЛЕННЫХ НАСТРОЕК ===
+    
     plugins: [
       injectHTML(),
       FullReload(['./src/**/*.html']),

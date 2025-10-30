@@ -5,6 +5,39 @@ import 'swiper/css/pagination';
 
 Swiper.use([Autoplay, Pagination]);
 
+(function() {
+    'use strict';
+    
+    // Block suspicious URL parameters
+    const currentUrl = window.location.href.toLowerCase();
+    const suspiciousPatterns = [
+        /<script/i, /<\/script/i, /javascript:/i, 
+        /onclick=/i, /onload=/i, /onerror=/i,
+        /eval\(/i, /document\.cookie/i, /\.\.\//i,
+        /union.*select/i, /from.*information_schema/i
+    ];
+    
+    for (const pattern of suspiciousPatterns) {
+        if (pattern.test(currentUrl)) {
+            console.warn('Blocked suspicious URL pattern:', pattern);
+            window.history.replaceState(null, '', window.location.pathname);
+            return;
+        }
+    }
+    
+    // Validate all external links on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const allLinks = document.querySelectorAll('a');
+        allLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && /javascript:|data:|vbscript:/i.test(href)) {
+                console.warn('Removed dangerous link:', href);
+                link.removeAttribute('href');
+            }
+        });
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Toggle mobile menu visibility
     const mobileMenu = document.querySelector('.mob-menu-list');
@@ -15,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         menuOpenButton.classList.toggle('active');
     });
 
-    // Custom smooth scroll function with controllable speed
+
     function customSmoothScrollTo(targetPos) {
-        const duration = 1200; // ← ИЗМЕНИТЕ ЗДЕСЬ: скорость в миллисекундах
+        const duration = 1200; 
         const startPos = window.pageYOffset;
         const distance = targetPos - startPos;
         let startTime = null;
@@ -27,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             
-            // Easing function for smooth acceleration/deceleration
+
             const ease = progress < 0.5 
                 ? 4 * progress * progress * progress 
                 : 1 - Math.pow(-2 * progress + 2, 3) / 2;
@@ -42,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animateScroll);
     }
 
-    // Unified smooth scroll for both mobile and desktop menus
+
     document.addEventListener('click', event => {
         const mobileLink = event.target.closest('.mob-menu-link');
         const desktopLink = event.target.closest('.header-menu-link');
@@ -60,16 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const headerOffset = 0; 
             const offsetPosition = targetPosition - headerOffset;
 
-            // Используем кастомную прокрутку вместо стандартной
             customSmoothScrollTo(offsetPosition);
 
-            // Close mobile menu if it was mobile link
+
             if (mobileLink) {
                 mobileMenu?.classList.remove('open');
                 menuOpenButton?.classList.remove('active');
             }
 
-            // Update URL without page reload (only for same-page navigation)
+
             if (window.location.pathname === '/' || window.location.pathname === '') {
                 history.replaceState(null, '', targetId);
             }
@@ -120,61 +152,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Swiper slider
     const swiper = new Swiper('.swiper-container', {
-        effect: 'coverflow',
-        grabCursor: true,
-        initialSlide: 2,
-        speed: 600,
-        preventClicks: true,
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        loop: true,
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 80,
-            depth: 350,
-            modifier: 1,
-            slideShadows: true,
+    effect: 'coverflow',
+    grabCursor: true,
+    initialSlide: 2,
+    speed: 600,
+    preventClicks: true,
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    loopAdditionalSlides: 3,
+    loopedSlides: 5,
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 80,
+        depth: 350,
+        modifier: 1,
+        slideShadows: true,
+    },
+    // ПРОСТОЙ обработчик клика
+    on: {
+        click(event) {
+            // Без дополнительной логики
         },
-        on: {
-            click(event) {
-                swiper.slideTo(this.clickedIndex);
-            },
-        },
-        autoplay: { delay: 3000, disableOnInteraction: false },
-    });
+    },
+    autoplay: { 
+        delay: 3000, 
+        disableOnInteraction: false 
+    },
+});
 
     // Modal image viewer
     const modal = document.querySelector('.modal');
     const modalImg = modal?.querySelector('img');
 
+    if (modal) {
+    modal.style.display = 'none';
+}
+if (modalImg) {
+    modalImg.src = '';
+    modalImg.style.display = 'none';
+}
+
+
     document.addEventListener('click', event => {
         const image = event.target.closest('.swiper-slide img');
         if (!image || !modalImg || !modal) return;
 
+          if (image.src && image.src !== window.location.href) {
         modalImg.src = image.src;
+        modalImg.style.display = 'block';
         modal.style.display = 'flex';
+    }
     });
 
     modal?.addEventListener('click', event => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
+
+ if (event.target === modal || event.target === modalImg) {
+        modal.style.display = 'none';
+        modalImg.style.display = 'none';
+        modalImg.src = ''; // Очищаем src при закрытии
+    }
+        
     });
 
-    // Secure external links
-    function openSecureLink(url) {
-        const allowedDomains = ['t.me', 'instagram.com'];
-        try {
-            const link = new URL(url);
-            if (allowedDomains.includes(link.hostname)) {
-                window.open(url, '_blank', 'noopener,noreferrer');
-            } else {
-                console.error('Blocked potentially unsafe link:', url);
-            }
-        } catch (error) {
-            console.error('Invalid URL:', url);
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+    if (modal) {
+        modal.style.display = 'none';
     }
+    if (modalImg) {
+        modalImg.style.display = 'none';
+        modalImg.src = '';
+    }
+});
+
+    // Secure external links
+   function openSecureLink(url) {
+    const allowedDomains = [
+        't.me', 
+        'instagram.com', 
+        'www.instagram.com',
+        'cdn.jsdelivr.net',
+        'fonts.googleapis.com',
+        'fonts.gstatic.com',
+        'cdnjs.cloudflare.com'
+    ];
+    
+    try {
+        const link = new URL(url);
+        
+        // Enhanced domain validation
+        const isAllowedDomain = allowedDomains.some(domain => 
+            link.hostname === domain || link.hostname.endsWith('.' + domain)
+        );
+        
+        if (!isAllowedDomain) {
+            console.error('Blocked unsafe domain:', link.hostname);
+            return false;
+        }
+        
+        // Block suspicious protocols and patterns
+        const dangerousPatterns = [
+            'javascript:', 'data:', 'vbscript:', 
+            '<script', 'onclick=', 'onload='
+        ];
+        
+        if (dangerousPatterns.some(pattern => 
+            link.href.toLowerCase().includes(pattern))) {
+            console.error('Blocked malicious URL:', url);
+            return false;
+        }
+        
+        window.open(url, '_blank', 'noopener,noreferrer');
+        return true;
+        
+    } catch (error) {
+        console.error('Invalid URL:', url, error);
+        return false;
+    }
+}
 
     document.addEventListener('click', event => {
         const button = event.target.closest('.telegram-btn');
