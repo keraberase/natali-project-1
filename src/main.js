@@ -15,22 +15,64 @@ document.addEventListener('DOMContentLoaded', () => {
         menuOpenButton.classList.toggle('active');
     });
 
-    // Smooth scroll to sections when clicking menu links
+    // Custom smooth scroll function with controllable speed
+    function customSmoothScrollTo(targetPos) {
+        const duration = 1200; // ← ИЗМЕНИТЕ ЗДЕСЬ: скорость в миллисекундах
+        const startPos = window.pageYOffset;
+        const distance = targetPos - startPos;
+        let startTime = null;
+
+        function animateScroll(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth acceleration/deceleration
+            const ease = progress < 0.5 
+                ? 4 * progress * progress * progress 
+                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, startPos + (distance * ease));
+            
+            if (elapsed < duration) {
+                requestAnimationFrame(animateScroll);
+            }
+        }
+
+        requestAnimationFrame(animateScroll);
+    }
+
+    // Unified smooth scroll for both mobile and desktop menus
     document.addEventListener('click', event => {
-        const link = event.target.closest('.mob-menu-link');
+        const mobileLink = event.target.closest('.mob-menu-link');
+        const desktopLink = event.target.closest('.header-menu-link');
+        
+        const link = mobileLink || desktopLink;
         if (!link) return;
+        
         event.preventDefault();
 
         const targetId = link.getAttribute('href');
         const targetElement = document.querySelector(targetId);
 
         if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth',
-            });
-            mobileMenu?.classList.remove('open');
-            menuOpenButton?.classList.remove('active');
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const headerOffset = 0; 
+            const offsetPosition = targetPosition - headerOffset;
+
+            // Используем кастомную прокрутку вместо стандартной
+            customSmoothScrollTo(offsetPosition);
+
+            // Close mobile menu if it was mobile link
+            if (mobileLink) {
+                mobileMenu?.classList.remove('open');
+                menuOpenButton?.classList.remove('active');
+            }
+
+            // Update URL without page reload (only for same-page navigation)
+            if (window.location.pathname === '/' || window.location.pathname === '') {
+                history.replaceState(null, '', targetId);
+            }
         }
     });
 
@@ -142,49 +184,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle Instagram link for mobile and desktop users
-   const instagramButton = document.getElementById('instagramLink');
-instagramButton?.addEventListener('click', event => {
-    event.preventDefault();
+    const instagramButton = document.getElementById('instagramLink');
+    instagramButton?.addEventListener('click', event => {
+        event.preventDefault();
 
-    const webLink = 'https://www.instagram.com/natalia_botianovska_psy/';
-    const appLink = 'instagram://user?username=natalia_botianovska_psy';
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+        const webLink = 'https://www.instagram.com/natalia_botianovska_psy/';
+        const appLink = 'instagram://user?username=natalia_botianovska_psy';
+        const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
-    if (isMobile) {
-        window.location.href = appLink;
-        setTimeout(() => {
+        if (isMobile) {
+            window.location.href = appLink;
+            setTimeout(() => {
+                window.open(webLink, '_blank', 'noopener,noreferrer');
+            }, 1000);
+        } else {
             window.open(webLink, '_blank', 'noopener,noreferrer');
-        }, 1000);
-    } else {
-        window.open(webLink, '_blank', 'noopener,noreferrer'); // На ПК сразу открываем веб-версию
-    }
-});
+        }
+    });
 
-
-    // Smooth scroll to top
+    // Smooth scroll to top with custom speed
     const arrowUp = document.querySelector('.arrow-up');
     arrowUp?.addEventListener('click', event => {
         event.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Secure history.replaceState
-    document.addEventListener('click', event => {
-        const link = event.target.closest('.header-menu-link');
-        if (!link) return;
-        event.preventDefault();
-
-        const targetId = link.getAttribute('href')?.substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop,
-                behavior: 'smooth',
-            });
-            if (window.location.pathname === '/') {
-                history.replaceState(null, '', window.location.pathname);
-            }
-        }
+        customSmoothScrollTo(0); // Прокрутка к верху с кастомной скоростью
     });
 });
